@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4B36A7F62120560400912EDE /* mgpath.c in Sources */ = {isa = PBXBuildFile; fileRef = 4B36A7F52120560400912EDE /* mgpath.c */; };
 		4B5F574420CC9DC900AE0A4E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 4B5F574320CC9DC900AE0A4E /* main.c */; };
+		8E6201522121A53E002E28EC /* mgpath.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E62014F2121A53E002E28EC /* mgpath.c */; };
+		8E6201552121A56A002E28EC /* kmp.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E6201532121A56A002E28EC /* kmp.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,10 +25,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4B36A7F42120560400912EDE /* mgpath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mgpath.h; sourceTree = "<group>"; };
-		4B36A7F52120560400912EDE /* mgpath.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mgpath.c; sourceTree = "<group>"; };
 		4B5F574020CC9DC900AE0A4E /* agrothim */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = agrothim; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B5F574320CC9DC900AE0A4E /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		8E62014F2121A53E002E28EC /* mgpath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mgpath.c; sourceTree = "<group>"; };
+		8E6201502121A53E002E28EC /* mgpath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mgpath.h; sourceTree = "<group>"; };
+		8E6201532121A56A002E28EC /* kmp.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = kmp.c; sourceTree = "<group>"; };
+		8E6201542121A56A002E28EC /* kmp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kmp.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,11 +63,29 @@
 		4B5F574220CC9DC900AE0A4E /* agrothim */ = {
 			isa = PBXGroup;
 			children = (
+				8E62014E2121A53E002E28EC /* maze */,
+				8E6201512121A53E002E28EC /* string */,
 				4B5F574320CC9DC900AE0A4E /* main.c */,
-				4B36A7F42120560400912EDE /* mgpath.h */,
-				4B36A7F52120560400912EDE /* mgpath.c */,
 			);
 			path = agrothim;
+			sourceTree = "<group>";
+		};
+		8E62014E2121A53E002E28EC /* maze */ = {
+			isa = PBXGroup;
+			children = (
+				8E62014F2121A53E002E28EC /* mgpath.c */,
+				8E6201502121A53E002E28EC /* mgpath.h */,
+			);
+			path = maze;
+			sourceTree = "<group>";
+		};
+		8E6201512121A53E002E28EC /* string */ = {
+			isa = PBXGroup;
+			children = (
+				8E6201532121A56A002E28EC /* kmp.c */,
+				8E6201542121A56A002E28EC /* kmp.h */,
+			);
+			path = string;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,8 +145,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B36A7F62120560400912EDE /* mgpath.c in Sources */,
+				8E6201552121A56A002E28EC /* kmp.c in Sources */,
 				4B5F574420CC9DC900AE0A4E /* main.c in Sources */,
+				8E6201522121A53E002E28EC /* mgpath.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

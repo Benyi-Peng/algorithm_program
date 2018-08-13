@@ -16,6 +16,7 @@
 #include <sys/stat.h>
 
 #include "mgpath.h"
+#include "kmp.h" 
 
 void fun(int n) {
     if (n == 1) {
