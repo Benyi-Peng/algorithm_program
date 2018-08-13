@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:agrothim.xcodeproj">
+      location = "self:/Users/pbyi/Desktop/agrothim/algorithm.xcodeproj">
    </FileRef>
 </Workspace>

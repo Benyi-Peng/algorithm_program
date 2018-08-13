@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B36A7FA2121CC2300912EDE /* sqstack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B36A7F92121CC2300912EDE /* sqstack.cpp */; };
 		4B5F574420CC9DC900AE0A4E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 4B5F574320CC9DC900AE0A4E /* main.c */; };
 		8E6201522121A53E002E28EC /* mgpath_stack.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E62014F2121A53E002E28EC /* mgpath_stack.c */; };
 		8E6201552121A56A002E28EC /* kmp.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E6201532121A56A002E28EC /* kmp.c */; };
@@ -25,7 +26,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4B5F574020CC9DC900AE0A4E /* agrothim */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = agrothim; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B36A7F82121CC2300912EDE /* sqstack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sqstack.h; sourceTree = "<group>"; };
+		4B36A7F92121CC2300912EDE /* sqstack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = sqstack.cpp; sourceTree = "<group>"; };
+		4B5F574020CC9DC900AE0A4E /* algorithm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = algorithm; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B5F574320CC9DC900AE0A4E /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		8E62014F2121A53E002E28EC /* mgpath_stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mgpath_stack.c; sourceTree = "<group>"; };
 		8E6201502121A53E002E28EC /* mgpath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mgpath.h; sourceTree = "<group>"; };
@@ -44,10 +47,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B36A7F72121CC1200912EDE /* base */ = {
+			isa = PBXGroup;
+			children = (
+				4B36A7F82121CC2300912EDE /* sqstack.h */,
+				4B36A7F92121CC2300912EDE /* sqstack.cpp */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
 		4B5F573720CC9DC900AE0A4E = {
 			isa = PBXGroup;
 			children = (
-				4B5F574220CC9DC900AE0A4E /* algrothim */,
+				4B5F574220CC9DC900AE0A4E /* algrothm */,
 				4B5F574120CC9DC900AE0A4E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,19 +67,20 @@
 		4B5F574120CC9DC900AE0A4E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4B5F574020CC9DC900AE0A4E /* agrothim */,
+				4B5F574020CC9DC900AE0A4E /* algorithm */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4B5F574220CC9DC900AE0A4E /* algrothim */ = {
+		4B5F574220CC9DC900AE0A4E /* algrothm */ = {
 			isa = PBXGroup;
 			children = (
+				4B36A7F72121CC1200912EDE /* base */,
 				8E62014E2121A53E002E28EC /* maze */,
 				8E6201512121A53E002E28EC /* string */,
 				4B5F574320CC9DC900AE0A4E /* main.c */,
 			);
-			path = algrothim;
+			path = algrothm;
 			sourceTree = "<group>";
 		};
 		8E62014E2121A53E002E28EC /* maze */ = {
@@ -91,9 +104,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4B5F573F20CC9DC900AE0A4E /* agrothim */ = {
+		4B5F573F20CC9DC900AE0A4E /* algorithm */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4B5F574720CC9DC900AE0A4E /* Build configuration list for PBXNativeTarget "agrothim" */;
+			buildConfigurationList = 4B5F574720CC9DC900AE0A4E /* Build configuration list for PBXNativeTarget "algorithm" */;
 			buildPhases = (
 				4B5F573C20CC9DC900AE0A4E /* Sources */,
 				4B5F573D20CC9DC900AE0A4E /* Frameworks */,
@@ -103,9 +116,9 @@
 			);
 			dependencies = (
 			);
-			name = agrothim;
+			name = algorithm;
 			productName = agrothim;
-			productReference = 4B5F574020CC9DC900AE0A4E /* agrothim */;
+			productReference = 4B5F574020CC9DC900AE0A4E /* algorithm */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -123,7 +136,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4B5F573B20CC9DC900AE0A4E /* Build configuration list for PBXProject "agrothim" */;
+			buildConfigurationList = 4B5F573B20CC9DC900AE0A4E /* Build configuration list for PBXProject "algorithm" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -135,7 +148,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4B5F573F20CC9DC900AE0A4E /* agrothim */,
+				4B5F573F20CC9DC900AE0A4E /* algorithm */,
 			);
 		};
 /* End PBXProject section */
@@ -145,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B36A7FA2121CC2300912EDE /* sqstack.cpp in Sources */,
 				8E6201552121A56A002E28EC /* kmp.c in Sources */,
 				4B5F574420CC9DC900AE0A4E /* main.c in Sources */,
 				8E6201522121A53E002E28EC /* mgpath_stack.c in Sources */,
@@ -278,7 +292,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4B5F573B20CC9DC900AE0A4E /* Build configuration list for PBXProject "agrothim" */ = {
+		4B5F573B20CC9DC900AE0A4E /* Build configuration list for PBXProject "algorithm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4B5F574520CC9DC900AE0A4E /* Debug */,
@@ -287,7 +301,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4B5F574720CC9DC900AE0A4E /* Build configuration list for PBXNativeTarget "agrothim" */ = {
+		4B5F574720CC9DC900AE0A4E /* Build configuration list for PBXNativeTarget "algorithm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4B5F574820CC9DC900AE0A4E /* Debug */,
