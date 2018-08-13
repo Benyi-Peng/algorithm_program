@@ -8,45 +8,37 @@
 
 #include <stdio.h>
 
-#include <fcntl.h>
+#include "kmp.h"
 
-#include <unistd.h>
-#include <limits.h>
-
-#include <sys/stat.h>
-
-#include "mgpath.h"
-#include "kmp.h" 
-
-void fun(int n) {
-    if (n == 1) {
-        printf("a:%d\n", n);
-    } else {
-        printf("b:%d\n", n);
-        fun(n-1);
-        printf("c:%d\n", n);
-    }
-}
+void kmpSample(void);
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-//    printf("Hello, World!\n");
-    
-//    openat(AT_FDCWD, <#const char *#>, <#int, ...#>)
-//    open(<#const char *#>, <#int, ...#>)
-    
-//    _POSIX_V7_ILP32_OFF32;
-//    sysconf(<#int#>)
-
-//    struct stat ta;
-//    stat("dev/fd", &ta);
-//
-//    ta.st_mode;
-//    S_ISSOCK(ta.st_mode);
-//
-//    S_TYPEISSEM(&ta);
-    fun(5);
-    
+    kmpSample();
     
     return 0;
+}
+
+void kmpSample(void) {
+    int ret;
+    
+    SqString s;
+    char target[24] = "BBC ABCDAB ABCDABCDABDE";
+    for (int i = 0; i < 24; i++) {
+        s.data[i] = target[i];
+    }
+    s.length = 24;
+    
+    SqString p;
+    char pattern[7] = "ABCDABD";
+    for (int i = 0; i < 7; i++) {
+        p.data[i] = pattern[i];
+    }
+    p.length = 7;
+    
+    
+    if ((ret = kmpMatch(s, p)) == -1) {
+        printf("Cannot find %s\n", p.data);
+    } else {
+        printf("Find at : %d\n", ret);
+    }
 }

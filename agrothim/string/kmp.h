@@ -14,7 +14,7 @@
 #define Maxsize 100
 
 typedef struct sq {
-    char *data[Maxsize];
+    char data[Maxsize];
     int length;
 } SqString;
 
