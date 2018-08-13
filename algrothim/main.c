@@ -1,6 +1,6 @@
 //
 //  main.c
-//  agrothim
+//  algorithm
 //
 //  Created by pbyi on 2018/6/10.
 //  Copyright © 2018年 pbyi. All rights reserved.
