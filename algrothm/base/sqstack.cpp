@@ -8,17 +8,8 @@
 
 #include "sqstack.h"
 
-
 #include <stdlib.h>
 
-
-
-#define MaxSize 100
-typedef char ElemType;
-typedef struct {
-    ElemType data[MaxSize];
-    int top;
-} SqStack;
 
 void InitStack(SqStack *&s) {
     s=(SqStack *)malloc(sizeof(SqStack));

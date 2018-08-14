@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4B36A7FA2121CC2300912EDE /* sqstack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B36A7F92121CC2300912EDE /* sqstack.cpp */; };
-		4B5F574420CC9DC900AE0A4E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 4B5F574320CC9DC900AE0A4E /* main.c */; };
-		8E6201522121A53E002E28EC /* mgpath_stack.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E62014F2121A53E002E28EC /* mgpath_stack.c */; };
+		4B5F574420CC9DC900AE0A4E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B5F574320CC9DC900AE0A4E /* main.cpp */; };
+		8E6201522121A53E002E28EC /* mgpath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E62014F2121A53E002E28EC /* mgpath.cpp */; };
 		8E6201552121A56A002E28EC /* kmp.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E6201532121A56A002E28EC /* kmp.c */; };
 /* End PBXBuildFile section */
 
@@ -29,8 +29,8 @@
 		4B36A7F82121CC2300912EDE /* sqstack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sqstack.h; sourceTree = "<group>"; };
 		4B36A7F92121CC2300912EDE /* sqstack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = sqstack.cpp; sourceTree = "<group>"; };
 		4B5F574020CC9DC900AE0A4E /* algorithm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = algorithm; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B5F574320CC9DC900AE0A4E /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		8E62014F2121A53E002E28EC /* mgpath_stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mgpath_stack.c; sourceTree = "<group>"; };
+		4B5F574320CC9DC900AE0A4E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		8E62014F2121A53E002E28EC /* mgpath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mgpath.cpp; sourceTree = "<group>"; };
 		8E6201502121A53E002E28EC /* mgpath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mgpath.h; sourceTree = "<group>"; };
 		8E6201532121A56A002E28EC /* kmp.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = kmp.c; sourceTree = "<group>"; };
 		8E6201542121A56A002E28EC /* kmp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kmp.h; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 				4B36A7F72121CC1200912EDE /* base */,
 				8E62014E2121A53E002E28EC /* maze */,
 				8E6201512121A53E002E28EC /* string */,
-				4B5F574320CC9DC900AE0A4E /* main.c */,
+				4B5F574320CC9DC900AE0A4E /* main.cpp */,
 			);
 			path = algrothm;
 			sourceTree = "<group>";
@@ -86,7 +86,7 @@
 		8E62014E2121A53E002E28EC /* maze */ = {
 			isa = PBXGroup;
 			children = (
-				8E62014F2121A53E002E28EC /* mgpath_stack.c */,
+				8E62014F2121A53E002E28EC /* mgpath.cpp */,
 				8E6201502121A53E002E28EC /* mgpath.h */,
 			);
 			path = maze;
@@ -132,7 +132,7 @@
 				TargetAttributes = {
 					4B5F573F20CC9DC900AE0A4E = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -160,8 +160,8 @@
 			files = (
 				4B36A7FA2121CC2300912EDE /* sqstack.cpp in Sources */,
 				8E6201552121A56A002E28EC /* kmp.c in Sources */,
-				4B5F574420CC9DC900AE0A4E /* main.c in Sources */,
-				8E6201522121A53E002E28EC /* mgpath_stack.c in Sources */,
+				4B5F574420CC9DC900AE0A4E /* main.cpp in Sources */,
+				8E6201522121A53E002E28EC /* mgpath.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,18 +274,22 @@
 		4B5F574820CC9DC900AE0A4E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
 		4B5F574920CC9DC900AE0A4E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
