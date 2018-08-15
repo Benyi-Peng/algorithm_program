@@ -86,8 +86,8 @@
 		8E62014E2121A53E002E28EC /* maze */ = {
 			isa = PBXGroup;
 			children = (
-				8E62014F2121A53E002E28EC /* mgpath.cpp */,
 				8E6201502121A53E002E28EC /* mgpath.h */,
+				8E62014F2121A53E002E28EC /* mgpath.cpp */,
 			);
 			path = maze;
 			sourceTree = "<group>";
@@ -95,8 +95,8 @@
 		8E6201512121A53E002E28EC /* string */ = {
 			isa = PBXGroup;
 			children = (
-				8E6201532121A56A002E28EC /* kmp.c */,
 				8E6201542121A56A002E28EC /* kmp.h */,
+				8E6201532121A56A002E28EC /* kmp.c */,
 			);
 			path = string;
 			sourceTree = "<group>";
