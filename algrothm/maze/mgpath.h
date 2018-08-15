@@ -11,22 +11,14 @@
 
 #include <stdio.h>
 
-#define MaxSize 100
-#define M 8
-#define N 8
-int mg[M+2][N+2] = {
-    {1,1,1,1,1,1,1,1,1,1},
-    {1,0,0,1,0,0,0,1,0,1},
-    {1,0,0,1,0,0,0,1,0,1},
-    {1,0,0,0,0,1,1,0,0,1},
-    {1,0,1,1,1,0,0,0,0,1},
-    {1,0,0,0,1,0,0,0,0,1},
-    {1,0,1,0,0,0,1,0,0,1},
-    {1,0,1,1,1,0,1,1,0,1},
-    {1,1,0,0,0,0,0,0,0,1},
-    {1,1,1,1,1,1,1,1,1,1}
-};
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 int mgpath_stack(int xi, int yi, int xe, int ye);
+    
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* mgpath_h */

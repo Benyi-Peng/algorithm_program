@@ -10,6 +10,22 @@
 
 #include "sqstack.h"
 
+#define MaxSize 100
+#define M 8
+#define N 8
+int mg[M+2][N+2] = {
+    {1,1,1,1,1,1,1,1,1,1},
+    {1,0,0,1,0,0,0,1,0,1},
+    {1,0,0,1,0,0,0,1,0,1},
+    {1,0,0,0,0,1,1,0,0,1},
+    {1,0,1,1,1,0,0,0,0,1},
+    {1,0,0,0,1,0,0,0,0,1},
+    {1,0,1,0,0,0,1,0,0,1},
+    {1,0,1,1,1,0,1,1,0,1},
+    {1,1,0,0,0,0,0,0,0,1},
+    {1,1,1,1,1,1,1,1,1,1}
+};
+
 
 int mgpath_stack(int xi, int yi, int xe, int ye) {
     SqStack *s;
@@ -31,16 +47,14 @@ int mgpath_stack(int xi, int yi, int xe, int ye) {
         GetTop(s, top); 
         if (top.i == xe && top.j == ye) {
             printf("Find path:\n\n");
-            for (int i = 0; i < M + 2; i++) {
-                for (int j = 0; j < N + 2; j++) {
-                    if (j == 9)
-                        printf("\n");
-                    printf("%d ", mg[i][j]);
-                }
+            for (int i = 0; i < s->top; i++) {
+                printf("(%d, %d)\n", s->data[i].i, s->data[i].j);
             }
+            DestroyStack(s);
+            return 1;
         } else {
             bool find = false;
-            while (top.di < 4) {
+            while (top.di < 4 && !find) {
                 switch (top.di) {
                     case 0:
                         iNext = top.i - 1;
@@ -77,15 +91,12 @@ int mgpath_stack(int xi, int yi, int xe, int ye) {
                 Push(s, next);
                 mg[iNext][jNext] = -1;
             } else {
-                Box top;
                 Pop(s, top);
                 mg[top.i][top.j] = 0;
             }
         }
     }
     
-    
-    
-    
-    return 1; 
+    DestroyStack(s);
+    return 0;
 }
