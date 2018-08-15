@@ -31,4 +31,22 @@ bool Pop(SqStack *&s,ElemType &e);
 bool GetTop(SqStack *s,ElemType &e);
 
 
+
+
+typedef struct {
+    void *elems;    //栈底指针
+    int loglen;       //已经使用的长度
+    int alloclen;    //已经申请的长度
+    int elemSize;   //单个元素的长度
+} Stack;
+
+
+void StackNew(Stack *&s, int elemSize);
+void StackDestroy(Stack *&s);
+bool StackEmpty(Stack *&s);
+bool StackPush(Stack *&s, void *elemAdd);
+bool StackPop(Stack *&s,  void *elemPop);
+bool StackGetTop(Stack *&s, void *elemTop);
+bool StackGetElement(Stack *&s, void *elemTop, int index); 
+
 #endif /* sqstack_h */

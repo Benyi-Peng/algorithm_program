@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4B36A7FA2121CC2300912EDE /* sqstack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B36A7F92121CC2300912EDE /* sqstack.cpp */; };
+		4B36A8022124758600912EDE /* mgpath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B36A7FD2124758600912EDE /* mgpath.cpp */; };
+		4B36A8032124758600912EDE /* sqstack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B36A8012124758600912EDE /* sqstack.cpp */; };
+		4B36A8072124760900912EDE /* evaluation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B36A8062124760900912EDE /* evaluation.cpp */; };
 		4B5F574420CC9DC900AE0A4E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 4B5F574320CC9DC900AE0A4E /* main.c */; };
-		8E6201522121A53E002E28EC /* mgpath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E62014F2121A53E002E28EC /* mgpath.cpp */; };
 		8E6201552121A56A002E28EC /* kmp.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E6201532121A56A002E28EC /* kmp.c */; };
 /* End PBXBuildFile section */
 
@@ -26,12 +27,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4B36A7F82121CC2300912EDE /* sqstack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sqstack.h; sourceTree = "<group>"; };
-		4B36A7F92121CC2300912EDE /* sqstack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = sqstack.cpp; sourceTree = "<group>"; };
+		4B36A7FD2124758600912EDE /* mgpath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mgpath.cpp; sourceTree = "<group>"; };
+		4B36A7FE2124758600912EDE /* mgpath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mgpath.h; sourceTree = "<group>"; };
+		4B36A8002124758600912EDE /* sqstack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqstack.h; sourceTree = "<group>"; };
+		4B36A8012124758600912EDE /* sqstack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sqstack.cpp; sourceTree = "<group>"; };
+		4B36A8052124760900912EDE /* evaluation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = evaluation.h; sourceTree = "<group>"; };
+		4B36A8062124760900912EDE /* evaluation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = evaluation.cpp; sourceTree = "<group>"; };
 		4B5F574020CC9DC900AE0A4E /* algorithm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = algorithm; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B5F574320CC9DC900AE0A4E /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		8E62014F2121A53E002E28EC /* mgpath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mgpath.cpp; sourceTree = "<group>"; };
-		8E6201502121A53E002E28EC /* mgpath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mgpath.h; sourceTree = "<group>"; };
 		8E6201532121A56A002E28EC /* kmp.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = kmp.c; sourceTree = "<group>"; };
 		8E6201542121A56A002E28EC /* kmp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kmp.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -47,13 +50,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4B36A7F72121CC1200912EDE /* base */ = {
+		4B36A7FB2124758600912EDE /* stack */ = {
 			isa = PBXGroup;
 			children = (
-				4B36A7F82121CC2300912EDE /* sqstack.h */,
-				4B36A7F92121CC2300912EDE /* sqstack.cpp */,
+				4B36A804212475CD00912EDE /* expression_evaluation */,
+				4B36A7FC2124758600912EDE /* maze */,
+				4B36A7FF2124758600912EDE /* base */,
+			);
+			path = stack;
+			sourceTree = "<group>";
+		};
+		4B36A7FC2124758600912EDE /* maze */ = {
+			isa = PBXGroup;
+			children = (
+				4B36A7FE2124758600912EDE /* mgpath.h */,
+				4B36A7FD2124758600912EDE /* mgpath.cpp */,
+			);
+			path = maze;
+			sourceTree = "<group>";
+		};
+		4B36A7FF2124758600912EDE /* base */ = {
+			isa = PBXGroup;
+			children = (
+				4B36A8002124758600912EDE /* sqstack.h */,
+				4B36A8012124758600912EDE /* sqstack.cpp */,
 			);
 			path = base;
+			sourceTree = "<group>";
+		};
+		4B36A804212475CD00912EDE /* expression_evaluation */ = {
+			isa = PBXGroup;
+			children = (
+				4B36A8052124760900912EDE /* evaluation.h */,
+				4B36A8062124760900912EDE /* evaluation.cpp */,
+			);
+			path = expression_evaluation;
 			sourceTree = "<group>";
 		};
 		4B5F573720CC9DC900AE0A4E = {
@@ -75,21 +106,11 @@
 		4B5F574220CC9DC900AE0A4E /* algrothm */ = {
 			isa = PBXGroup;
 			children = (
-				4B36A7F72121CC1200912EDE /* base */,
-				8E62014E2121A53E002E28EC /* maze */,
+				4B36A7FB2124758600912EDE /* stack */,
 				8E6201512121A53E002E28EC /* string */,
 				4B5F574320CC9DC900AE0A4E /* main.c */,
 			);
 			path = algrothm;
-			sourceTree = "<group>";
-		};
-		8E62014E2121A53E002E28EC /* maze */ = {
-			isa = PBXGroup;
-			children = (
-				8E6201502121A53E002E28EC /* mgpath.h */,
-				8E62014F2121A53E002E28EC /* mgpath.cpp */,
-			);
-			path = maze;
 			sourceTree = "<group>";
 		};
 		8E6201512121A53E002E28EC /* string */ = {
@@ -158,10 +179,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B36A7FA2121CC2300912EDE /* sqstack.cpp in Sources */,
 				8E6201552121A56A002E28EC /* kmp.c in Sources */,
+				4B36A8072124760900912EDE /* evaluation.cpp in Sources */,
+				4B36A8022124758600912EDE /* mgpath.cpp in Sources */,
+				4B36A8032124758600912EDE /* sqstack.cpp in Sources */,
 				4B5F574420CC9DC900AE0A4E /* main.c in Sources */,
-				8E6201522121A53E002E28EC /* mgpath.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

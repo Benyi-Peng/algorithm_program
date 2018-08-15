@@ -54,41 +54,65 @@ bool GetTop(SqStack *s,ElemType &e) {
 
 
 
-typedef struct {
-    void *elems;    //栈底指针
-    int loglen;       //已经使用的长度
-    int alloclen;    //已经申请的长度
-    int elemSize;   //单个元素的长度
-} stack;
 
-static void StackGrow(stack *s);
 
-void StackNew(stack *s, int elemSize) {
+
+
+void StackNew(Stack *&s, int elemSize) {
+    s = (Stack *)malloc(sizeof(Stack));
     s->elemSize = elemSize;
     s->loglen = 0;
     s->alloclen = 4;
-    s->elems = malloc(4 *elemSize);
+    s->elems = malloc(4 * elemSize);
 }
 
-void StackPush(stack *s, void *elemAdd) {
+void StackDestroy(Stack *&s) {
+    free(s);
+}
+
+bool StackEmpty(Stack *&s) {
+    return s->loglen == 0;
+}
+
+static void StackGrow(Stack *&s) {
+    s->alloclen += 4;
+    s->elems = realloc(s->elems, (s->alloclen) * (s->elemSize));
+}
+
+bool StackPush(Stack *&s, void *elemAdd) {
     //栈满则采用加倍策略增长
     if (s->loglen == s->alloclen) {
         StackGrow(s);
     }
     
-    void *target = (char *)(s->elemSize) + s->loglen * (s->elemSize);
+    void *target = (char *)(s->elems) + s->loglen * (s->elemSize);
     memcpy(target, elemAdd, s->elemSize);
     s->loglen++;
+    
+    return true;
 }
 
-static void StackGrow(stack *s) {
-    s->alloclen *= 2;
-    s->elems = realloc(s->elems, (s->alloclen) * (s->elemSize));
-}
 
-void StackPop(stack *s,  void *elempop) {
+
+bool StackPop(Stack *&s,  void *elemPop) {
     //获取栈顶元素指针
-    void *source = (char*)(s->elems) + (s->loglen - 1 ) *(s->elemSize);
-    memcpy(elempop, source, s->elemSize);
+    void *source = (char*)(s->elems) + (s->loglen - 1) *(s->elemSize);
+    memcpy(elemPop, source, s->elemSize);
     s->loglen--;
+    
+    return true;
+}
+
+bool StackGetTop(Stack *&s, void *elemTop) {
+    void *source = (char*)(s->elems) + (s->loglen - 1) *(s->elemSize);
+    memcpy(elemTop, source, s->elemSize);
+    
+    return true;
+}
+
+bool StackGetElement(Stack *&s, void *elemTop, int index) {
+    void *source = (char*)(s->elems) + index *(s->elemSize);
+    memcpy(elemTop, source, s->elemSize);
+    
+    return true;
 }

@@ -18,7 +18,8 @@ void kmpSample(void);
 
 int main(int argc, const char * argv[]) {
 
-    mgpath_stack(1, 1, 8, 8);
+//    mgpath_stack(1, 1, 8, 8);
+    mgpath_GenericStack(1, 1, 8, 8);
     
     return 0;
 }
