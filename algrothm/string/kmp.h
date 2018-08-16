@@ -18,5 +18,6 @@ typedef struct sq {
     int length;
 } SqString;
 
+void kmpSample(void);
 int kmpMatch(SqString s, SqString p);
 #endif /* kmp_h */

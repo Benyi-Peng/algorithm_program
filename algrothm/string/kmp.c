@@ -8,6 +8,31 @@
 
 #include "kmp.h"
 
+void kmpSample(void) {
+    int ret;
+    
+    SqString s;
+    char target[24] = "BBC ABCDAB ABCDABCDABDE";
+    for (int i = 0; i < 24; i++) {
+        s.data[i] = target[i];
+    }
+    s.length = 24;
+    
+    SqString p;
+    char pattern[7] = "ABCDABD";
+    for (int i = 0; i < 7; i++) {
+        p.data[i] = pattern[i];
+    }
+    p.length = 7;
+    
+    
+    if ((ret = kmpMatch(s, p)) == -1) {
+        printf("Cannot find %s\n", p.data);
+    } else {
+        printf("Find at : %d\n", ret);
+    }
+}
+
 int getNext(SqString p, int next[]) {
     int j = 0, k = -1;
     next[0] = -1;

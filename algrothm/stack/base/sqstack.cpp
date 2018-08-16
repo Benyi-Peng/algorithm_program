@@ -94,6 +94,9 @@ bool StackPush(Stack *&s, void *elemAdd) {
 
 
 bool StackPop(Stack *&s,  void *elemPop) {
+    if (s->loglen == 0) {
+        return false;
+    }
     //获取栈顶元素指针
     void *source = (char*)(s->elems) + (s->loglen - 1) *(s->elemSize);
     memcpy(elemPop, source, s->elemSize);
@@ -103,6 +106,9 @@ bool StackPop(Stack *&s,  void *elemPop) {
 }
 
 bool StackGetTop(Stack *&s, void *elemTop) {
+    if (s->loglen == 0) {
+        return false;
+    }
     void *source = (char*)(s->elems) + (s->loglen - 1) *(s->elemSize);
     memcpy(elemTop, source, s->elemSize);
     
@@ -110,6 +116,9 @@ bool StackGetTop(Stack *&s, void *elemTop) {
 }
 
 bool StackGetElement(Stack *&s, void *elemTop, int index) {
+    if (s->loglen == 0) {
+        return false;
+    }
     void *source = (char*)(s->elems) + index *(s->elemSize);
     memcpy(elemTop, source, s->elemSize);
     

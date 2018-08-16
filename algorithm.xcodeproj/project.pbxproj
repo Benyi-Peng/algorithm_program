@@ -10,7 +10,7 @@
 		4B36A8022124758600912EDE /* mgpath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B36A7FD2124758600912EDE /* mgpath.cpp */; };
 		4B36A8032124758600912EDE /* sqstack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B36A8012124758600912EDE /* sqstack.cpp */; };
 		4B36A8072124760900912EDE /* evaluation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B36A8062124760900912EDE /* evaluation.cpp */; };
-		4B5F574420CC9DC900AE0A4E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 4B5F574320CC9DC900AE0A4E /* main.c */; };
+		4B5F574420CC9DC900AE0A4E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B5F574320CC9DC900AE0A4E /* main.cpp */; };
 		8E6201552121A56A002E28EC /* kmp.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E6201532121A56A002E28EC /* kmp.c */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +34,7 @@
 		4B36A8052124760900912EDE /* evaluation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = evaluation.h; sourceTree = "<group>"; };
 		4B36A8062124760900912EDE /* evaluation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = evaluation.cpp; sourceTree = "<group>"; };
 		4B5F574020CC9DC900AE0A4E /* algorithm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = algorithm; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B5F574320CC9DC900AE0A4E /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		4B5F574320CC9DC900AE0A4E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		8E6201532121A56A002E28EC /* kmp.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = kmp.c; sourceTree = "<group>"; };
 		8E6201542121A56A002E28EC /* kmp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kmp.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,7 +108,7 @@
 			children = (
 				4B36A7FB2124758600912EDE /* stack */,
 				8E6201512121A53E002E28EC /* string */,
-				4B5F574320CC9DC900AE0A4E /* main.c */,
+				4B5F574320CC9DC900AE0A4E /* main.cpp */,
 			);
 			path = algrothm;
 			sourceTree = "<group>";
@@ -183,7 +183,7 @@
 				4B36A8072124760900912EDE /* evaluation.cpp in Sources */,
 				4B36A8022124758600912EDE /* mgpath.cpp in Sources */,
 				4B36A8032124758600912EDE /* sqstack.cpp in Sources */,
-				4B5F574420CC9DC900AE0A4E /* main.c in Sources */,
+				4B5F574420CC9DC900AE0A4E /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
