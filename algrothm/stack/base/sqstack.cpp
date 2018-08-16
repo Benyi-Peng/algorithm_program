@@ -80,7 +80,6 @@ static void StackGrow(Stack *&s) {
 }
 
 bool StackPush(Stack *&s, void *elemAdd) {
-    //栈满则采用加倍策略增长
     if (s->loglen == s->alloclen) {
         StackGrow(s);
     }
