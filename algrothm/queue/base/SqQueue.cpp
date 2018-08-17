@@ -16,39 +16,77 @@
 
 
 
-#define MaxSize 100
-typedef char ElemType;
-typedef struct
-{
-    ElemType data[MaxSize];
-    int front,rear;
-    int elemSize; 
-} SqQueue;
 
 
-void InitQueue(SqQueue *&q)
-{    q=(SqQueue *)malloc (sizeof(SqQueue));
-    q->front=q->rear=0;
+
+void InitQueue(SqQueue *&q, int elemSize) {
+    q = (SqQueue *)malloc(sizeof(SqQueue));
+    q->data = malloc(sizeof(MaxSize * elemSize));
+    q->elemSize = elemSize;
+    q->front = q->rear = 0;
 }
-void DestroyQueue(SqQueue *&q)
-{
+
+void DestroyQueue(SqQueue *&q) {
     free(q);
 }
-bool QueueEmpty(SqQueue *q)
-{
+
+bool QueueEmpty(SqQueue *q) {
     return(q->front==q->rear);
 }
-bool enQueue(SqQueue *&q,ElemType e)
-{    if ((q->rear+1)%MaxSize==q->front)
-    return false;
-    q->rear=(q->rear+1)%MaxSize;
-    q->data[q->rear]=e;
+
+// 循环队列队满判别：留出一个位置，用以区分队空。
+bool enQueue(SqQueue *&q, void *e) {
+    if ((q->rear + 1) % MaxSize==q->front)
+        return false;
+    void *rear = (char *)q->data + q->rear * q->elemSize;
+    memcpy(rear, e, q->elemSize);
+    q->rear = (q->rear + 1) % MaxSize;
     return true;
 }
-bool deQueue(SqQueue *&q,ElemType &e)
-{    if (q->front==q->rear)
-    return false;
-    q->front=(q->front+1)%MaxSize;
-    e=q->data[q->front];
+
+bool deQueue(SqQueue *&q,void *e) {
+    if (q->front == q->rear)
+        return false;
+    void *front = (char *)q->data + q->front * q->elemSize;
+    memcpy(e, front, q->elemSize);
+    q->front = (q->front + 1) % MaxSize;
     return true;
+}
+
+void testQueue(void) {
+    SqQueue *q;
+    InitQueue(q, sizeof(int));
+    
+    int a = 0;
+    int b = 1;
+    int c = 2;
+    int d = 33;
+    int e = 478;
+    int f = 55;
+    
+    enQueue(q, &a);
+    enQueue(q, &b);
+    enQueue(q, &c);
+    enQueue(q, &d);
+    enQueue(q, &e);
+    enQueue(q, &f);
+    
+    int t;
+    deQueue(q, &t);
+    printf("%d ", t);
+    
+    deQueue(q, &t);
+    printf("%d ", t);
+    
+    deQueue(q, &t);
+    printf("%d ", t);
+    
+    deQueue(q, &t);
+    printf("%d ", t);
+    
+    deQueue(q, &t);
+    printf("%d ", t);
+    
+    deQueue(q, &t);
+    printf("%d ", t);
 }

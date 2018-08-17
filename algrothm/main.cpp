@@ -14,6 +14,8 @@
 
 #include "evaluation.h"
 
+#include "SqQueue.h" 
+
 
 void kmpSample(void);
 
