@@ -34,7 +34,8 @@ int main(int argc, const char * argv[]) {
 //    printf("%f\n", ret);
 //    return 0;
     
-    queen(); 
+//    queen();
+    eightQueen_1();
 }
 
 
