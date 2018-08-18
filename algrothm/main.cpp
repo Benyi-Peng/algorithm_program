@@ -33,7 +33,7 @@ int main(int argc, const char * argv[]) {
 //    calculate(exp, ret);
 //    printf("%f\n", ret);
 //    return 0;
-
+    printf("all solutions : %zd\n", mgpath_all(1, 1, 8, 8));
     
 }
 

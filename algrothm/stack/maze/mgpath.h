@@ -15,8 +15,9 @@
 extern "C" {
 #endif
 
-int mgpath_stack(int xi, int yi, int xe, int ye);
-int mgpath_GenericStack(int xi, int yi, int xe, int ye);
+    int mgpath_stack(int xi, int yi, int xe, int ye);
+    int mgpath_GenericStack(int xi, int yi, int xe, int ye);
+    int mgpath_all(int xi, int yi, int xe, int ye);
     
 #ifdef __cplusplus
 }
