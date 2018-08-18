@@ -180,7 +180,7 @@ int mgpath_all(int xi, int yi, int xe, int ye) {
             top.di++;
         }
         if (find) {
-            void *source = (char*)(s->elems) + (s->loglen - 1) *(s->elemSize);
+            void *source = (char *)(s->elems) + (s->loglen - 1) *(s->elemSize);
             Box *t = (Box *)source;
             t->di = top.di;
             

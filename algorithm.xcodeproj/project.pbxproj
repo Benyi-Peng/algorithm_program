@@ -13,7 +13,7 @@
 		4B36A80C2125C50900912EDE /* SqQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B36A80B2125C50900912EDE /* SqQueue.cpp */; };
 		4B5F574420CC9DC900AE0A4E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B5F574320CC9DC900AE0A4E /* main.cpp */; };
 		8E6201552121A56A002E28EC /* kmp.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E6201532121A56A002E28EC /* kmp.c */; };
-		8EDEE7422127AAE1001AD6B0 /* nqueen.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EDEE7402127AAE1001AD6B0 /* nqueen.c */; };
+		8EDEE7422127AAE1001AD6B0 /* nqueen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EDEE7402127AAE1001AD6B0 /* nqueen.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,7 +41,7 @@
 		4B5F574320CC9DC900AE0A4E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		8E6201532121A56A002E28EC /* kmp.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = kmp.c; sourceTree = "<group>"; };
 		8E6201542121A56A002E28EC /* kmp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kmp.h; sourceTree = "<group>"; };
-		8EDEE7402127AAE1001AD6B0 /* nqueen.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = nqueen.c; sourceTree = "<group>"; };
+		8EDEE7402127AAE1001AD6B0 /* nqueen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = nqueen.cpp; sourceTree = "<group>"; };
 		8EDEE7412127AAE1001AD6B0 /* nqueen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nqueen.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,7 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				8EDEE7412127AAE1001AD6B0 /* nqueen.h */,
-				8EDEE7402127AAE1001AD6B0 /* nqueen.c */,
+				8EDEE7402127AAE1001AD6B0 /* nqueen.cpp */,
 			);
 			path = nqueen;
 			sourceTree = "<group>";
@@ -219,7 +219,7 @@
 				4B36A8032124758600912EDE /* sqstack.cpp in Sources */,
 				4B5F574420CC9DC900AE0A4E /* main.cpp in Sources */,
 				4B36A80C2125C50900912EDE /* SqQueue.cpp in Sources */,
-				8EDEE7422127AAE1001AD6B0 /* nqueen.c in Sources */,
+				8EDEE7422127AAE1001AD6B0 /* nqueen.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

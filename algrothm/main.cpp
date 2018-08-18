@@ -16,6 +16,7 @@
 
 #include "SqQueue.h" 
 
+#include "nqueen.h"
 
 void kmpSample(void);
 
@@ -25,7 +26,7 @@ int main(int argc, const char * argv[]) {
 //    kmpSample();
         
 //    mgpath_GenericStack(1, 1, 8, 8);
-    printf("all solutions : %zd\n", mgpath_all(1, 1, 8, 8));
+//    printf("all solutions : %zd\n", mgpath_all(1, 1, 8, 8));
     
 //    char *exp = "56 - 20 / (1 + 2 * 2)";
 //    double ret;
@@ -33,6 +34,7 @@ int main(int argc, const char * argv[]) {
 //    printf("%f\n", ret);
 //    return 0;
     
+    queen(); 
 }
 
 
