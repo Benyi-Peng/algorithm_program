@@ -23,17 +23,15 @@ void kmpSample(void);
 int main(int argc, const char * argv[]) {
 
 //    kmpSample();
-    
-//    mgpath_stack(1, 1, 8, 8);
-    
+        
 //    mgpath_GenericStack(1, 1, 8, 8);
+    printf("all solutions : %zd\n", mgpath_all(1, 1, 8, 8));
     
 //    char *exp = "56 - 20 / (1 + 2 * 2)";
 //    double ret;
 //    calculate(exp, ret);
 //    printf("%f\n", ret);
 //    return 0;
-    printf("all solutions : %zd\n", mgpath_all(1, 1, 8, 8));
     
 }
 
