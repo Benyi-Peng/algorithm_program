@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B21952B212991AB0087ED6F /* mgpath_queue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B21952A212991AB0087ED6F /* mgpath_queue.cpp */; };
 		4B36A8022124758600912EDE /* mgpath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B36A7FD2124758600912EDE /* mgpath.cpp */; };
 		4B36A8032124758600912EDE /* sqstack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B36A8012124758600912EDE /* sqstack.cpp */; };
 		4B36A8072124760900912EDE /* evaluation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B36A8062124760900912EDE /* evaluation.cpp */; };
@@ -29,6 +30,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4B219529212991AB0087ED6F /* mgpath_queue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mgpath_queue.h; sourceTree = "<group>"; };
+		4B21952A212991AB0087ED6F /* mgpath_queue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mgpath_queue.cpp; sourceTree = "<group>"; };
 		4B36A7FD2124758600912EDE /* mgpath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mgpath.cpp; sourceTree = "<group>"; };
 		4B36A7FE2124758600912EDE /* mgpath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mgpath.h; sourceTree = "<group>"; };
 		4B36A8002124758600912EDE /* sqstack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqstack.h; sourceTree = "<group>"; };
@@ -56,6 +59,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B2195282129917E0087ED6F /* maze */ = {
+			isa = PBXGroup;
+			children = (
+				4B219529212991AB0087ED6F /* mgpath_queue.h */,
+				4B21952A212991AB0087ED6F /* mgpath_queue.cpp */,
+			);
+			path = maze;
+			sourceTree = "<group>";
+		};
 		4B36A7FB2124758600912EDE /* stack */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +109,7 @@
 		4B36A8082125C4E900912EDE /* queue */ = {
 			isa = PBXGroup;
 			children = (
+				4B2195282129917E0087ED6F /* maze */,
 				4B36A8092125C4E900912EDE /* base */,
 			);
 			path = queue;
@@ -217,6 +230,7 @@
 				4B36A8072124760900912EDE /* evaluation.cpp in Sources */,
 				4B36A8022124758600912EDE /* mgpath.cpp in Sources */,
 				4B36A8032124758600912EDE /* sqstack.cpp in Sources */,
+				4B21952B212991AB0087ED6F /* mgpath_queue.cpp in Sources */,
 				4B5F574420CC9DC900AE0A4E /* main.cpp in Sources */,
 				4B36A80C2125C50900912EDE /* SqQueue.cpp in Sources */,
 				8EDEE7422127AAE1001AD6B0 /* nqueen.cpp in Sources */,

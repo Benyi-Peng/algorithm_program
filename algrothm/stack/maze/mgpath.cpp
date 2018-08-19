@@ -31,7 +31,6 @@ int mgpath_GenericStack(int xi, int yi, int xe, int ye) {
     Stack *s;
     StackNew(s, sizeof(Box));
     
-    
     Box first;
     first.i = xi;
     first.j = yi;
@@ -131,7 +130,7 @@ int mgpath_all(int xi, int yi, int xe, int ye) {
         Box top;
         StackGetTop(s, &top);
         if (top.i == xe && top.j == ye) {
-            printf("Find path (%zd), length (%zd):\n", allSolutions + 1, s->loglen);
+            printf("Find path (%d), length (%d):\n", allSolutions + 1, s->loglen);
             if (s->loglen < length) {
                 shortest = allSolutions + 1;
                 length = s->loglen;
@@ -197,7 +196,7 @@ int mgpath_all(int xi, int yi, int xe, int ye) {
         }
     }
     
-    printf("Shortest way is No.%zd, its length %zd\n", shortest, length);
+    printf("Shortest way is No.%d, its length %d\n", shortest, length);
     
     StackDestroy(s);
     return allSolutions;

@@ -24,6 +24,7 @@ void InitQueue(SqQueue *&q, int elemSize) {
     q->data = malloc(sizeof(MaxSize * elemSize));
     q->elemSize = elemSize;
     q->front = q->rear = 0;
+    q->allocLen = MaxSize;
 }
 
 void DestroyQueue(SqQueue *&q) {
@@ -34,9 +35,39 @@ bool QueueEmpty(SqQueue *q) {
     return(q->front==q->rear);
 }
 
-// 循环队列队满判别：留出一个位置，用以区分队空。
+void QueueGrow(SqQueue *&q) {
+    q->allocLen += 10;
+    q->data = realloc(q->data, q->allocLen * q->elemSize);
+}
+
 bool enQueue(SqQueue *&q, void *e) {
-    if ((q->rear + 1) % MaxSize==q->front)
+    if (q->rear == q->allocLen) {
+        QueueGrow(q);
+    }
+    void *rear = (char *)q->data + q->rear * q->elemSize;
+    memcpy(rear, e, q->elemSize);
+    q->rear = q->rear + 1;
+    return true;
+}
+
+bool deQueue(SqQueue *&q, void *e) {
+    if (q->front == q->rear)
+        return false;
+    void *front = (char *)q->data + q->front * q->elemSize;
+    memcpy(e, front, q->elemSize);
+    q->front = q->front + 1;
+    return true;
+}
+
+bool queueGetElement(SqQueue *&q, int idx, void *e) {
+    void *source = (char *)(q->data) + idx * (q->elemSize);
+    memcpy(e, source, q->elemSize);
+    return true;
+}
+
+// 循环队列队满判别：留出一个位置，用以区分队空。
+bool enQueueLoop(SqQueue *&q, void *e) {
+    if ((q->rear + 1) % MaxSize == q->front)
         return false;
     void *rear = (char *)q->data + q->rear * q->elemSize;
     memcpy(rear, e, q->elemSize);
@@ -44,7 +75,7 @@ bool enQueue(SqQueue *&q, void *e) {
     return true;
 }
 
-bool deQueue(SqQueue *&q,void *e) {
+bool deQueueLoop(SqQueue *&q,void *e) {
     if (q->front == q->rear)
         return false;
     void *front = (char *)q->data + q->front * q->elemSize;
@@ -88,5 +119,5 @@ void testQueue(void) {
     printf("%d ", t);
     
     deQueue(q, &t);
-    printf("%d ", t);
+    printf("%d\n ", t);
 }
