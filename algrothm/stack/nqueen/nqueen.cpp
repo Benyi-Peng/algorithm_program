@@ -46,28 +46,33 @@ int queen(void) {
     
     while (!StackEmpty(s)) {
         
-        while (ret[s->loglen] < 8) {
-            
-            ret[s->loglen]++;
-            
-            if (s->loglen == 8) {
-                
-            }
-        }
+//        while (ret[s->loglen] < 8) {
+//
+//            ret[s->loglen]++;
+//
+//            if (s->loglen == 8) {
+//                // success
+//            } else {
+//
+//            }
+//            if (1) {
+//
+//            }
+//        }
         
         QueenPos top;
-        
+
         if (s->loglen == 8) {
             StackPop(s, &top);
             board[top.row][top.col] = 0;
             allSolution++;
         }
-        
+
         // 判断是否找到可以放置的位置
         QueenPos next;
-        bool find = false;
         next.row = s->loglen;
         next.col = ret[s->loglen - 1] + 1;
+        bool find = false;
         while (!find && next.col < 8) {
             int i,j;
             find = true;
@@ -103,12 +108,12 @@ int queen(void) {
                 if (board[i][j] == 1)
                     find = false;
             }
-            
+
             if (!find) {
                 next.col++;
-            }
+            } 
         }
-        
+
         if (find) { // 如果找到了, 入栈找到的点
             StackPush(s, &next);
             ret[s->loglen - 1] = next.col;
@@ -127,6 +132,26 @@ int queen(void) {
     
     return 1;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
