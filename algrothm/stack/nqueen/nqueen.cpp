@@ -37,10 +37,15 @@ int queen(void) {
 
     int allSolution = 0;
 
+    for (int i = 0; i < 8; i++) {
+        
+    }
+    
     QueenPos first;
     first.row = 0; first.col = 0; first.last = 0;
     board[0][0] = 1;
     StackPush(s, &first);
+    
     
     
     while (!StackEmpty(s)) {
@@ -67,16 +72,17 @@ int queen(void) {
 //        }
 
         if (s->loglen == 8) {
-            StackPop(s, &top);
-            board[top.row][top.col] = 0;
+//            StackPop(s, &top);
+//            board[top.row][top.col] = 0;
             allSolution++;
         }
-
-        // 判断是否找到可以放置的位置
+        
         QueenPos next;
         next.row = s->loglen;
         next.col = top.last + 1;
-        next.last = 0; 
+        next.last = 0;
+
+        // 判断是否找到可以放置的位置
         bool find = false;
         while (!find && next.col < 8) {
             int i,j;
@@ -120,16 +126,15 @@ int queen(void) {
         }
 
         if (find) { // 如果找到了, 入栈找到的点
-            
             StackPush(s, &next);
             board[next.row][next.col] = 1;
         } else { // 如果没找到, 出栈当前top
+            StackPop(s, &top);
             
             void *source = (char *)(s->elems) + (s->loglen - 1) *(s->elemSize);
-            QueenPos *p = (QueenPos *)source;
-            p->last = next.col;
+            QueenPos *t = (QueenPos *)source;
+            t->last = top.col;
             
-            StackPop(s, &top);
             board[top.row][top.col] = 0;
         }
     }
@@ -146,11 +151,89 @@ int queen(void) {
 
 
 
+bool canPlace(QueenPos next);
+int queen2(void) {
+    Stack *s;
+    StackNew(s, sizeof(QueenPos));
+    
+    int allSolution = 0;
+    
+    QueenPos first;
+    first.row = 0; first.col = 0; first.last = 0;
+    board[0][0] = 1;
+    StackPush(s, &first);
+    
+    while (!StackEmpty(s)) {
+        if (s->loglen == 8) {
+            allSolution++;
+        }
+        
+        QueenPos top;
+        StackGetTop(s, &top);
+        QueenPos next;
+        next.row = top.row + 1;
+        next.col = 0;
+        while (next.col < 8) {
+            next.col = top.col + 1;
+            if (canPlace(next)) {
+                StackPush(s, &next);
+                board[next.row][next.col] = 1;
+                StackGetTop(s, &top);
+                next.row = top.row + 1;
+                next.col = 0;
+            }
+            next.col++;
+        }
+        
+        StackPop(s, &top);
+        board[top.row][top.col] = 0;
+    }
+    
+    printf("all solution : %d\n", allSolution);
+    return 1;
+}
 
 
 
-
-
+bool canPlace(QueenPos next) {
+    bool find = true;
+    
+    int i,j;
+    for (i = 0; i < next.row; i++) { // up
+        if (board[i][next.col] == 1)
+            find = false;
+    }
+    for (i = next.row + 1; i < 8; i++) { // down
+        if (board[i][next.col] == 1)
+            find = false;
+    }
+    for (i = 0; i < next.col; i++) { // left
+        if (board[next.row][i] == 1)
+            find = false;
+    }
+    for (i = next.col + 1; i < 8; i++) { // right
+        if (board[next.row][i] == 1)
+            find = false;
+    }
+    for (i = next.row - 1, j = next.col - 1; i >= 0 && j >= 0; i--,j--) { // left + up
+        if (board[i][j] == 1)
+            find = false;
+    }
+    for (i = next.row + 1, j = next.col + 1; i < 8 && j < 8; i++,j++) { // right + down
+        if (board[i][j] == 1)
+            find = false;
+    }
+    for (i = next.row + 1, j = next.col - 1; i < 8 && j >= 0; i++,j--) { // left + down
+        if (board[i][j] == 1)
+            find = false;
+    }
+    for (i = next.row - 1, j = next.col + 1; i >= 0 && j < 8; i--,j++) { // right + up
+        if (board[i][j] == 1)
+            find = false;
+    }
+    
+    return find;
+}
 
 
 

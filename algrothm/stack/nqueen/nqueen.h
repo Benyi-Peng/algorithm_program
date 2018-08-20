@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 
-int queen(void); 
+int queen(void);
+int queen2(void);
 void eightQueen_1();
 #endif /* nqueen_h */
