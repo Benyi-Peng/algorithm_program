@@ -26,7 +26,8 @@ int board[8][8] = {
 
 typedef struct {
     int row;
-    int col; 
+    int col;
+    int last;
 } QueenPos;
 
 
@@ -37,11 +38,9 @@ int queen(void) {
     int allSolution = 0;
 
     QueenPos first;
-    first.row = 0; first.col = 0;
+    first.row = 0; first.col = 0; first.last = 0;
     board[0][0] = 1;
     StackPush(s, &first);
-    
-    int ret[9] = {0,0,0,0,0,0,0,0,0};
     
     
     while (!StackEmpty(s)) {
@@ -61,6 +60,11 @@ int queen(void) {
 //        }
         
         QueenPos top;
+        StackGetTop(s, &top);
+        
+//        while (s->loglen < 8) {
+//
+//        }
 
         if (s->loglen == 8) {
             StackPop(s, &top);
@@ -71,7 +75,8 @@ int queen(void) {
         // 判断是否找到可以放置的位置
         QueenPos next;
         next.row = s->loglen;
-        next.col = ret[s->loglen - 1] + 1;
+        next.col = top.last + 1;
+        next.last = 0; 
         bool find = false;
         while (!find && next.col < 8) {
             int i,j;
@@ -111,15 +116,19 @@ int queen(void) {
 
             if (!find) {
                 next.col++;
-            } 
+            }
         }
 
         if (find) { // 如果找到了, 入栈找到的点
+            
             StackPush(s, &next);
-            ret[s->loglen - 1] = next.col;
             board[next.row][next.col] = 1;
         } else { // 如果没找到, 出栈当前top
-            //                ret[s->loglen - 1] = 0;
+            
+            void *source = (char *)(s->elems) + (s->loglen - 1) *(s->elemSize);
+            QueenPos *p = (QueenPos *)source;
+            p->last = next.col;
+            
             StackPop(s, &top);
             board[top.row][top.col] = 0;
         }
@@ -132,7 +141,6 @@ int queen(void) {
     
     return 1;
 }
-
 
 
 
