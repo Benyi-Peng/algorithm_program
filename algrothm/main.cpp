@@ -36,8 +36,8 @@ int main(int argc, const char * argv[]) {
 //    printf("%f\n", ret);
 //    return 0;
     
-    queen();
-//    eightQueen_1();
+    queen2();
+    eightQueen_1();
     
 //    testQueue();
     

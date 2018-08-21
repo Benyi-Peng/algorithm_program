@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "algrothm/stack/nqueen/nqueen.cpp"
-            timestampString = "556472689.837284"
+            timestampString = "556504644.076884"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
-            landmarkName = "queen2(void)"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "queen(void)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "algrothm/stack/nqueen/nqueen.cpp"
-            timestampString = "556472689.8380719"
+            timestampString = "556504644.077482"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189"
-            landmarkName = "queen2(void)"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "queen(void)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "algrothm/stack/nqueen/nqueen.cpp"
-            timestampString = "556472689.838524"
+            timestampString = "556504644.077898"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
-            landmarkName = "queen2(void)"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "queen(void)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>

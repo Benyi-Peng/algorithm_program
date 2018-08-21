@@ -152,52 +152,83 @@ int queen(void) {
 
 
 bool canPlace(QueenPos next);
+void printBoard(void);
 int queen2(void) {
     Stack *s;
     StackNew(s, sizeof(QueenPos));
     
     int allSolution = 0;
     
-    QueenPos first;
-    first.row = 0; first.col = 0; first.last = 0;
-    board[0][0] = 1;
-    StackPush(s, &first);
-    
-    while (!StackEmpty(s)) {
-        if (s->loglen == 8) {
-            allSolution++;
-        }
+    for (int i = 0; i < 8; i++) {
         
-        QueenPos top;
-        StackGetTop(s, &top);
-        QueenPos next;
-        next.row = top.row + 1;
-        next.col = 0;
-        while (next.col < 8) {
-            next.col = top.col + 1;
-            if (canPlace(next)) {
-                StackPush(s, &next);
-                board[next.row][next.col] = 1;
-                StackGetTop(s, &top);
-                next.row = top.row + 1;
-                next.col = 0;
+        QueenPos first;
+        first.row = 0; first.col = i; first.last = 0;
+        board[0][i] = 1;
+        StackPush(s, &first);
+        
+        while (!StackEmpty(s)) {
+            //        if (s->loglen == 8) {
+            //            allSolution++;
+            //        }
+            
+            QueenPos top;
+            StackGetTop(s, &top);
+            
+            QueenPos next;
+            next.row = top.row + 1;
+            next.col = top.last + 1;
+            next.last = 0;
+            while (next.col < 8) {
+                if (canPlace(next)) {
+                    
+                    void *source = (char *)(s->elems) + (s->loglen - 1) *(s->elemSize);
+                    QueenPos *t = (QueenPos *)source;
+                    t->last= next.col;
+                    
+                    StackPush(s, &next);
+                    board[next.row][next.col] = 1;
+                    
+                    if (next.row == 7) {
+                        allSolution++;
+                        printBoard();
+                    }
+                    
+                    next.row = next.row + 1;
+                    next.col = 0;
+                    
+                    
+                } else {
+                    next.col++;
+                }
             }
-            next.col++;
+            
+            
+            
+            StackPop(s, &top);
+            board[top.row][top.col] = 0;
         }
-        
-        StackPop(s, &top);
-        board[top.row][top.col] = 0;
     }
     
-    printf("all solution : %d\n", allSolution);
+    
+    printf("all solution : %d\n\n", allSolution);
     return 1;
 }
 
-
+void printBoard(void) {
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            printf("%d ", board[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n\n");
+}
 
 bool canPlace(QueenPos next) {
     bool find = true;
-    
+    if (next.row == 8 || next.col == 8) {
+        return false; 
+    }
     int i,j;
     for (i = 0; i < next.row; i++) { // up
         if (board[i][next.col] == 1)
@@ -234,6 +265,27 @@ bool canPlace(QueenPos next) {
     
     return find;
 }
+
+
+
+
+int queen3(void) {
+    int board1[8];
+    memset(board1, 0, sizeof(int) * 8);
+    int row = 1;
+//    while (<#condition#>) {
+//        <#statements#>
+//    }
+    return 1;
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -276,6 +328,7 @@ bool canPlaceQueen(int k)
 //迭代方法求解八皇后过程
 void eightQueen_1()
 {
+    int allSolution = 0;
     int k = 1;
     while(k>=1)
     {
@@ -284,6 +337,7 @@ void eightQueen_1()
             queenArr[k] += 1;
             if(k == 8 && canPlaceQueen(k))
             {
+                allSolution++;
                 print();
             }
             else if(canPlaceQueen(k))
@@ -294,6 +348,7 @@ void eightQueen_1()
         queenArr[k] = 0;
         k--;
     }
+    printf("all solution : %d\n", allSolution);
 }
 
 void test() {
