@@ -37,7 +37,7 @@ int main(int argc, const char * argv[]) {
 //    return 0;
     
     queen2();
-    eightQueen_1();
+//    eightQueen_1();
     
 //    testQueue();
     

@@ -162,14 +162,12 @@ int queen2(void) {
     for (int i = 0; i < 8; i++) {
         
         QueenPos first;
-        first.row = 0; first.col = i; first.last = 0;
+        first.row = 0; first.col = i; first.last = -1;
         board[0][i] = 1;
         StackPush(s, &first);
         
         while (!StackEmpty(s)) {
-            //        if (s->loglen == 8) {
-            //            allSolution++;
-            //        }
+            
             
             QueenPos top;
             StackGetTop(s, &top);
@@ -177,7 +175,8 @@ int queen2(void) {
             QueenPos next;
             next.row = top.row + 1;
             next.col = top.last + 1;
-            next.last = 0;
+            next.last = -1;
+            
             while (next.col < 8) {
                 if (canPlace(next)) {
                     
