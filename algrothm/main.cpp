@@ -20,6 +20,8 @@
 
 #include "mgpath_queue.h"
 
+#include "hanioTower.h"
+
 void kmpSample(void);
 
 
@@ -36,12 +38,16 @@ int main(int argc, const char * argv[]) {
 //    printf("%f\n", ret);
 //    return 0;
     
-    queen();
+//    queen();
 //    eightQueen_1();
     
 //    testQueue();
     
 //    maze_queue(1, 1, 8, 8);
+    
+    tower(4, 'x', 'y', 'z');
+    printf("\n\n\n");
+    tower_stack(4, 'x', 'y', 'z');
 }
 
 
