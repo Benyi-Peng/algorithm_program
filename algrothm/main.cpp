@@ -22,6 +22,8 @@
 
 #include "hanioTower.h"
 
+#include "maze_recursion.h"
+
 void kmpSample(void);
 
 
@@ -45,9 +47,12 @@ int main(int argc, const char * argv[]) {
     
 //    maze_queue(1, 1, 8, 8);
     
-    tower(4, 'x', 'y', 'z');
-    printf("\n\n\n");
-    tower_stack(4, 'x', 'y', 'z');
+//    tower(4, 'x', 'y', 'z');
+//    printf("\n\n\n");
+//    tower_stack(4, 'x', 'y', 'z');
+    
+    RPath path;
+    maze_recursion(1, 1, 8, 8, path); 
 }
 
 

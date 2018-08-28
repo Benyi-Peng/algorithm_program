@@ -11,4 +11,29 @@
 
 #include <stdio.h>
 
+#define MaxSize 100
+
+typedef struct {
+    int row;
+    int col;
+} RBox;
+
+typedef struct {
+    RBox p[MaxSize];
+    int length;
+} RPath;
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+    
+    int maze_recursion(int xi, int yi, int xe, int ye, RPath &path);
+    
+#ifdef __cplusplus
+}
+#endif
+
+
+
 #endif /* maze_recursion_h */
