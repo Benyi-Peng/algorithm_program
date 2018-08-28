@@ -52,7 +52,7 @@ int main(int argc, const char * argv[]) {
 //    tower_stack(4, 'x', 'y', 'z');
     
     RPath path;
-    maze_recursion(1, 1, 8, 8, path); 
+    maze_recursion2(1, 1, 8, 8, path); 
 }
 
 

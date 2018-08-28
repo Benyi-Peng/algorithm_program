@@ -28,7 +28,8 @@ typedef struct {
 extern "C" {
 #endif
     
-    int maze_recursion(int xi, int yi, int xe, int ye, RPath &path);
+    int maze_recursion(int xi, int yi, int xe, int ye, RPath path);
+    int maze_recursion2(int xi, int yi, int xe, int ye, RPath path);
     
 #ifdef __cplusplus
 }
