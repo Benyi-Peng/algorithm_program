@@ -8,6 +8,7 @@
 
 #include "maze_recursion.h"
 
+
 //#define MaxSize 100
 #define M 8
 #define N 8
@@ -40,10 +41,10 @@ int maze_recursion(int xi, int yi, int xe, int ye, RPath path) {
     } else {
         if (mg2[xi][yi] == 0) {
             RBox next;
-            next.row = xi;
-            next.col = yi;
             int di = 0;
             while (di < 4) {
+                next.row = xi;
+                next.col = yi;
                 path.p[path.length] = next;
                 path.length++;
                 switch (di) {
@@ -113,7 +114,7 @@ int maze_recursion2(int xi, int yi, int xe, int ye, RPath path) {
                         break;
                 }
                 mg2[xi][yi] = -1;
-                maze_recursion(i, j, xe, ye, path);
+                maze_recursion2(i, j, xe, ye, path);
                 mg2[xi][yi] = 0;
                 path.length--;
                 di++;
