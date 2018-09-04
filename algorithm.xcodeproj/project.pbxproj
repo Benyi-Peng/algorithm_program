@@ -16,6 +16,8 @@
 		4B36A80C2125C50900912EDE /* SqQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B36A80B2125C50900912EDE /* SqQueue.cpp */; };
 		4B5F574420CC9DC900AE0A4E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B5F574320CC9DC900AE0A4E /* main.cpp */; };
 		4B7F678D213DF9B400B03423 /* queen_recursion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B7F678C213DF9B400B03423 /* queen_recursion.cpp */; };
+		4B7F6791213E085600B03423 /* stack_other.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B7F678F213E085600B03423 /* stack_other.cpp */; };
+		4B7F6794213E09F900B03423 /* recursion_other.c in Sources */ = {isa = PBXBuildFile; fileRef = 4B7F6793213E09F900B03423 /* recursion_other.c */; };
 		8E6201552121A56A002E28EC /* kmp.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E6201532121A56A002E28EC /* kmp.c */; };
 		8EDEE7422127AAE1001AD6B0 /* nqueen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EDEE7402127AAE1001AD6B0 /* nqueen.cpp */; };
 /* End PBXBuildFile section */
@@ -51,6 +53,10 @@
 		4B5F574320CC9DC900AE0A4E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		4B7F678B213DF9B400B03423 /* queen_recursion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = queen_recursion.h; sourceTree = "<group>"; };
 		4B7F678C213DF9B400B03423 /* queen_recursion.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = queen_recursion.cpp; sourceTree = "<group>"; };
+		4B7F678F213E085600B03423 /* stack_other.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = stack_other.cpp; sourceTree = "<group>"; };
+		4B7F6790213E085600B03423 /* stack_other.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stack_other.h; sourceTree = "<group>"; };
+		4B7F6792213E09F900B03423 /* recursion_other.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = recursion_other.h; sourceTree = "<group>"; };
+		4B7F6793213E09F900B03423 /* recursion_other.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = recursion_other.c; sourceTree = "<group>"; };
 		8E6201532121A56A002E28EC /* kmp.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = kmp.c; sourceTree = "<group>"; };
 		8E6201542121A56A002E28EC /* kmp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kmp.h; sourceTree = "<group>"; };
 		8EDEE7402127AAE1001AD6B0 /* nqueen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = nqueen.cpp; sourceTree = "<group>"; };
@@ -86,6 +92,8 @@
 				4B219531212DA7100087ED6F /* hanioTower.cpp */,
 				4B7F678B213DF9B400B03423 /* queen_recursion.h */,
 				4B7F678C213DF9B400B03423 /* queen_recursion.cpp */,
+				4B7F6792213E09F900B03423 /* recursion_other.h */,
+				4B7F6793213E09F900B03423 /* recursion_other.c */,
 			);
 			path = Recursion;
 			sourceTree = "<group>";
@@ -93,6 +101,7 @@
 		4B36A7FB2124758600912EDE /* stack */ = {
 			isa = PBXGroup;
 			children = (
+				4B7F678E213E083500B03423 /* other */,
 				8EDEE73F2127A81C001AD6B0 /* nqueen */,
 				4B36A804212475CD00912EDE /* expression_evaluation */,
 				4B36A7FC2124758600912EDE /* maze */,
@@ -174,6 +183,15 @@
 			path = algrothm;
 			sourceTree = "<group>";
 		};
+		4B7F678E213E083500B03423 /* other */ = {
+			isa = PBXGroup;
+			children = (
+				4B7F6790213E085600B03423 /* stack_other.h */,
+				4B7F678F213E085600B03423 /* stack_other.cpp */,
+			);
+			path = other;
+			sourceTree = "<group>";
+		};
 		8E6201512121A53E002E28EC /* string */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,9 +267,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B7F6794213E09F900B03423 /* recursion_other.c in Sources */,
 				8E6201552121A56A002E28EC /* kmp.c in Sources */,
 				4B36A8072124760900912EDE /* evaluation.cpp in Sources */,
 				4B36A8022124758600912EDE /* mgpath.cpp in Sources */,
+				4B7F6791213E085600B03423 /* stack_other.cpp in Sources */,
 				4B219532212DA7100087ED6F /* hanioTower.cpp in Sources */,
 				4B36A8032124758600912EDE /* sqstack.cpp in Sources */,
 				4B7F678D213DF9B400B03423 /* queen_recursion.cpp in Sources */,
