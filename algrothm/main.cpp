@@ -24,6 +24,8 @@
 
 #include "maze_recursion.h"
 
+#include "queen_recursion.h"
+
 void kmpSample(void);
 
 
@@ -42,6 +44,9 @@ int main(int argc, const char * argv[]) {
     
 //    queen();
 //    eightQueen_1();
+//    
+//    int all = 0;
+//    queen3(0, all);
     
 //    testQueue();
     
@@ -51,8 +56,8 @@ int main(int argc, const char * argv[]) {
 //    printf("\n\n\n");
 //    tower_stack(4, 'x', 'y', 'z');
     
-    RPath path;
-    maze_recursion(1, 1, 8, 8, path); 
+//    RPath path;
+//    maze_recursion(1, 1, 8, 8, path);
 }
 
 

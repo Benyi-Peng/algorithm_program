@@ -284,10 +284,18 @@ void eightQueen_1() {
     while(k>=1) {
         while(queenArr[k]<=7) {
             queenArr[k] += 1;
-            if(k == 8 && canPlaceQueen(k)) {
-                allSolution++;
-                print();
-            } else if(canPlaceQueen(k)) {
+//            if(k == 8 && canPlaceQueen(k)) {
+//                allSolution++;
+//                print();
+//            } else if(canPlaceQueen(k)) {
+//                k++;
+//            }
+            
+            if (canPlaceQueen(k)) {
+                if (k == 8) {
+                    allSolution++;
+                    print();
+                }
                 k++;
             }
         }
