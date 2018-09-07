@@ -17,7 +17,7 @@
 		4B5F574420CC9DC900AE0A4E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B5F574320CC9DC900AE0A4E /* main.cpp */; };
 		4B7F678D213DF9B400B03423 /* queen_recursion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B7F678C213DF9B400B03423 /* queen_recursion.cpp */; };
 		4B7F6791213E085600B03423 /* stack_other.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B7F678F213E085600B03423 /* stack_other.cpp */; };
-		4B7F6794213E09F900B03423 /* recursion_other.c in Sources */ = {isa = PBXBuildFile; fileRef = 4B7F6793213E09F900B03423 /* recursion_other.c */; };
+		4B7F6794213E09F900B03423 /* recursion_other.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B7F6793213E09F900B03423 /* recursion_other.cpp */; };
 		8E6201552121A56A002E28EC /* kmp.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E6201532121A56A002E28EC /* kmp.c */; };
 		8EDEE7422127AAE1001AD6B0 /* nqueen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EDEE7402127AAE1001AD6B0 /* nqueen.cpp */; };
 /* End PBXBuildFile section */
@@ -56,7 +56,7 @@
 		4B7F678F213E085600B03423 /* stack_other.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = stack_other.cpp; sourceTree = "<group>"; };
 		4B7F6790213E085600B03423 /* stack_other.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stack_other.h; sourceTree = "<group>"; };
 		4B7F6792213E09F900B03423 /* recursion_other.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = recursion_other.h; sourceTree = "<group>"; };
-		4B7F6793213E09F900B03423 /* recursion_other.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = recursion_other.c; sourceTree = "<group>"; };
+		4B7F6793213E09F900B03423 /* recursion_other.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = recursion_other.cpp; sourceTree = "<group>"; };
 		8E6201532121A56A002E28EC /* kmp.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = kmp.c; sourceTree = "<group>"; };
 		8E6201542121A56A002E28EC /* kmp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kmp.h; sourceTree = "<group>"; };
 		8EDEE7402127AAE1001AD6B0 /* nqueen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = nqueen.cpp; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 				4B7F678B213DF9B400B03423 /* queen_recursion.h */,
 				4B7F678C213DF9B400B03423 /* queen_recursion.cpp */,
 				4B7F6792213E09F900B03423 /* recursion_other.h */,
-				4B7F6793213E09F900B03423 /* recursion_other.c */,
+				4B7F6793213E09F900B03423 /* recursion_other.cpp */,
 			);
 			path = Recursion;
 			sourceTree = "<group>";
@@ -267,7 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B7F6794213E09F900B03423 /* recursion_other.c in Sources */,
+				4B7F6794213E09F900B03423 /* recursion_other.cpp in Sources */,
 				8E6201552121A56A002E28EC /* kmp.c in Sources */,
 				4B36A8072124760900912EDE /* evaluation.cpp in Sources */,
 				4B36A8022124758600912EDE /* mgpath.cpp in Sources */,

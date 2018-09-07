@@ -17,6 +17,7 @@ extern "C" {
 #endif
     
     int queen3(int row, int &allSolution);
+    int queen4(int row, int &allSolution);
     
 #ifdef __cplusplus
 }

@@ -11,4 +11,18 @@
 
 #include <stdio.h>
 
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+    
+    void bag(void);
+    double expx(double x, int n);
+    
+    
+#ifdef __cplusplus
+}
+#endif
+
+
 #endif /* recursion_other_h */

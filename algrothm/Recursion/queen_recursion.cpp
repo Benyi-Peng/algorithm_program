@@ -39,11 +39,30 @@ int queen3(int row, int &allSolution) {
             queen3(row + 1, allSolution);
         }
     }
-    board2[row] = 0;
     if (row == 0)
         printf("all solution : %d\n", allSolution);
 
     return 1;
 }
 
+
+
+int queen4(int row, int &allSolution) {
+    if (row == 8) {
+        allSolution++;
+        printf("solution: %d ||", allSolution);
+        for (int i = 0; i < 8; i++) {
+            printf("%d ", board2[i]);
+        }
+        printf("\n");
+    } else {
+        for (int col = 0; col < 8; col++) {
+            board2[row] = col;
+            if (canPlaceQueen2(row)) {
+                queen4(row + 1, allSolution);
+            }
+        }
+    }
+    return 1;
+}
 
