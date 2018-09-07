@@ -25,7 +25,7 @@ double expx(double x, int n) {
 // 2. 01背包问题
 #define MaxN 20
 int maxv = 0;
-int maxw = 0;
+int maxw = 40000;
 int ret[MaxN];
 
 int W = 7; // limit weight
@@ -35,12 +35,16 @@ int v[] = {4, 4, 3, 1};
 
 void knap(int i, int curW, int curV, int curRet[]) {
     if (i >= N) {
-        if (curW <= maxw && curV >= maxv) {
+        if (curW <= W && curV >= maxv) { // 判定条件太粗心，浪费了40分钟
             maxv = curV;
             maxw = curW;
             for (int j = 0; j < N; j++) {
                 ret[j] = curRet[j];
             }
+            for (int k = 0; k < MaxN; k++) {
+                printf("%d ",curRet[k]);
+            }
+            printf("\n");
         }
     } else {
         curRet[i] = 1;
