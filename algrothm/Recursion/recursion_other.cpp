@@ -41,10 +41,6 @@ void knap(int i, int curW, int curV, int curRet[]) {
             for (int j = 0; j < N; j++) {
                 ret[j] = curRet[j];
             }
-            for (int k = 0; k < MaxN; k++) {
-                printf("%d ",curRet[k]);
-            }
-            printf("\n");
         }
     } else {
         curRet[i] = 1;
