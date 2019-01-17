@@ -7,63 +7,36 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
 
-#include "kmp.h"
-
-#include "mgpath.h"
-
-#include "evaluation.h"
-
-#include "SqQueue.h" 
-
-#include "nqueen.h"
-
-#include "mgpath_queue.h"
-
-#include "hanioTower.h"
-
-#include "maze_recursion.h"
-
-#include "queen_recursion.h"
-
-#include "recursion_other.h"
+#include "linkedList/linkedlist.h"
+#include "solution1_100.h"
 
 void kmpSample(void);
 
 
 int main(int argc, const char * argv[]) {
-
-//    kmpSample();
-        
-//    mgpath_GenericStack(1, 1, 8, 8);
-//    printf("all solutions : %zd\n", mgpath_all(1, 1, 8, 8));
     
-//    char *exp = "56 - 20 / (1 + 2 * 2)";
-//    double ret;
-//    calculate(exp, ret);
-//    printf("%f\n", ret);
-//    return 0;
+//    int x[4] = {2,7,11,15};
+//    int *ret;
+//    ret = twoSum(x, 4, 9);
+//    for (int i = 0; i < 2; i++) {
+//        printf("%d ", ret[i]);
+//    }
+//    free(ret);
+    LinkNode *l1;
+    InitList(l1);
+    int a1[] = {2, 4, 3};
+    CreateListR(l1, a1, 3);
     
-//    queen();
-//    eightQueen_1();
-
-//    int all = 0;
-//    queen3(0, all);
-//    queen4(0, all);
+    LinkNode *l2;
+    InitList(l2);
+    int a2[] = {4, 5, 6};
+    CreateListR(l2, a2, 3);
     
-//    testQueue();
+    DispList(l1);
+    DispList(l2);
     
-//    maze_queue(1, 1, 8, 8);
-    
-//    tower(4, 'x', 'y', 'z');
-//    printf("\n\n\n");
-//    tower_stack(4, 'x', 'y', 'z');
-    
-//    RPath path;
-//    maze_recursion(1, 1, 8, 8, path);
-    
-    bag();
-//    printf("%.6f\n",expx(0.99, 100));
 }
 
 
