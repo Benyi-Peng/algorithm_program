@@ -15,7 +15,7 @@
 bool trans(char *exp, char postExp[]) {
     Stack *s;
     StackNew(s, sizeof(char));
-    
+
     int postIndex = 0;
     while (*exp != '\0') {
         switch (*exp) {
@@ -28,7 +28,7 @@ bool trans(char *exp, char postExp[]) {
                 while (top != '(') {
                     StackPop(s, &top);
                     postExp[postIndex++] = top;
-                    
+
                     StackGetTop(s, &top);
                 }
                 StackPop(s, &top);
@@ -40,7 +40,7 @@ bool trans(char *exp, char postExp[]) {
                 while (!StackEmpty(s) && top != '(') {
                     StackPop(s, &top);
                     postExp[postIndex++] = top;
-                    
+
                     StackGetTop(s, &top);
                 }
                 StackPush(s, exp++);
@@ -51,14 +51,14 @@ bool trans(char *exp, char postExp[]) {
                 while (!StackEmpty(s) && top != '(' && top != '+' && top != '-') {
                     StackPop(s, &top);
                     postExp[postIndex++] = top;
-                    
+
                     StackGetTop(s, &top);
                 }
                 StackPush(s, exp++);
                 break;
             default:
                 if (*exp == ' ') {
-                    exp++; 
+                    exp++;
                     continue;
                 }
                 //非法字符
@@ -74,7 +74,7 @@ bool trans(char *exp, char postExp[]) {
                 break;
         }
     }
-    
+
     while (!StackEmpty(s)) {
         char top;
         StackPop(s, &top);
@@ -128,7 +128,7 @@ bool calculatePostExep(char postExp[], double &ret) {
         printf("%c\n", *postExp);
         postExp++;
     }
-    
+
     StackGetTop(op, &ret);
     StackDestroy(op);
     return true;

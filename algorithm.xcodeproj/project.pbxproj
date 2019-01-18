@@ -19,8 +19,8 @@
 		4B7F6791213E085600B03423 /* stack_other.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B7F678F213E085600B03423 /* stack_other.cpp */; };
 		4B7F6794213E09F900B03423 /* recursion_other.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B7F6793213E09F900B03423 /* recursion_other.cpp */; };
 		4B7F67982143490100B03423 /* tree_basis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B7F67972143490100B03423 /* tree_basis.cpp */; };
-		4B85BC8621EF6051000BE1A2 /* linkedlist.c in Sources */ = {isa = PBXBuildFile; fileRef = 4B85BC8521EF6051000BE1A2 /* linkedlist.c */; };
-		4B85BC8A21EF72AA000BE1A2 /* solution1_100.c in Sources */ = {isa = PBXBuildFile; fileRef = 4B85BC8921EF72AA000BE1A2 /* solution1_100.c */; };
+		4B85BC8A21EF72AA000BE1A2 /* solution1_100.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B85BC8921EF72AA000BE1A2 /* solution1_100.cpp */; };
+		4BF60F6621F1F9B00059E913 /* linklist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BF60F6421F1F9B00059E913 /* linklist.cpp */; };
 		8E6201552121A56A002E28EC /* kmp.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E6201532121A56A002E28EC /* kmp.c */; };
 		8EDEE7422127AAE1001AD6B0 /* nqueen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EDEE7402127AAE1001AD6B0 /* nqueen.cpp */; };
 /* End PBXBuildFile section */
@@ -62,10 +62,10 @@
 		4B7F6793213E09F900B03423 /* recursion_other.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = recursion_other.cpp; sourceTree = "<group>"; };
 		4B7F67962143490100B03423 /* tree_basis.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tree_basis.h; sourceTree = "<group>"; };
 		4B7F67972143490100B03423 /* tree_basis.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tree_basis.cpp; sourceTree = "<group>"; };
-		4B85BC8421EF6051000BE1A2 /* linkedlist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = linkedlist.h; sourceTree = "<group>"; };
-		4B85BC8521EF6051000BE1A2 /* linkedlist.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = linkedlist.c; sourceTree = "<group>"; };
 		4B85BC8821EF72AA000BE1A2 /* solution1_100.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = solution1_100.h; sourceTree = "<group>"; };
-		4B85BC8921EF72AA000BE1A2 /* solution1_100.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = solution1_100.c; sourceTree = "<group>"; };
+		4B85BC8921EF72AA000BE1A2 /* solution1_100.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = solution1_100.cpp; sourceTree = "<group>"; };
+		4BF60F6421F1F9B00059E913 /* linklist.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = linklist.cpp; sourceTree = "<group>"; };
+		4BF60F6521F1F9B00059E913 /* linklist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = linklist.h; sourceTree = "<group>"; };
 		8E6201532121A56A002E28EC /* kmp.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = kmp.c; sourceTree = "<group>"; };
 		8E6201542121A56A002E28EC /* kmp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kmp.h; sourceTree = "<group>"; };
 		8EDEE7402127AAE1001AD6B0 /* nqueen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = nqueen.cpp; sourceTree = "<group>"; };
@@ -86,8 +86,8 @@
 		4B1ED6EC217560CE00EAA4CF /* linkedList */ = {
 			isa = PBXGroup;
 			children = (
-				4B85BC8421EF6051000BE1A2 /* linkedlist.h */,
-				4B85BC8521EF6051000BE1A2 /* linkedlist.c */,
+				4BF60F6521F1F9B00059E913 /* linklist.h */,
+				4BF60F6421F1F9B00059E913 /* linklist.cpp */,
 			);
 			path = linkedList;
 			sourceTree = "<group>";
@@ -119,11 +119,11 @@
 		4B36A7FB2124758600912EDE /* stack */ = {
 			isa = PBXGroup;
 			children = (
+				4B36A7FF2124758600912EDE /* base */,
 				4B7F678E213E083500B03423 /* other */,
 				8EDEE73F2127A81C001AD6B0 /* nqueen */,
 				4B36A804212475CD00912EDE /* expression_evaluation */,
 				4B36A7FC2124758600912EDE /* maze */,
-				4B36A7FF2124758600912EDE /* base */,
 			);
 			path = stack;
 			sourceTree = "<group>";
@@ -158,8 +158,8 @@
 		4B36A8082125C4E900912EDE /* queue */ = {
 			isa = PBXGroup;
 			children = (
-				4B2195282129917E0087ED6F /* maze */,
 				4B36A8092125C4E900912EDE /* base */,
+				4B2195282129917E0087ED6F /* maze */,
 			);
 			path = queue;
 			sourceTree = "<group>";
@@ -226,7 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				4B85BC8821EF72AA000BE1A2 /* solution1_100.h */,
-				4B85BC8921EF72AA000BE1A2 /* solution1_100.c */,
+				4B85BC8921EF72AA000BE1A2 /* solution1_100.cpp */,
 			);
 			path = leetCode;
 			sourceTree = "<group>";
@@ -313,6 +313,7 @@
 				4B7F6791213E085600B03423 /* stack_other.cpp in Sources */,
 				4B219532212DA7100087ED6F /* hanioTower.cpp in Sources */,
 				4B36A8032124758600912EDE /* sqstack.cpp in Sources */,
+				4BF60F6621F1F9B00059E913 /* linklist.cpp in Sources */,
 				4B7F678D213DF9B400B03423 /* queen_recursion.cpp in Sources */,
 				4B7F67982143490100B03423 /* tree_basis.cpp in Sources */,
 				4B21952B212991AB0087ED6F /* mgpath_queue.cpp in Sources */,
@@ -320,8 +321,7 @@
 				4B36A80C2125C50900912EDE /* SqQueue.cpp in Sources */,
 				8EDEE7422127AAE1001AD6B0 /* nqueen.cpp in Sources */,
 				4B21952F2129A68D0087ED6F /* maze_recursion.cpp in Sources */,
-				4B85BC8A21EF72AA000BE1A2 /* solution1_100.c in Sources */,
-				4B85BC8621EF6051000BE1A2 /* linkedlist.c in Sources */,
+				4B85BC8A21EF72AA000BE1A2 /* solution1_100.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

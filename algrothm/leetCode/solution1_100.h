@@ -10,14 +10,14 @@
 #define solution1_100_h
 
 #include <stdio.h>
-
+#include "linklist.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
     
     int* twoSum(int* nums, int numsSize, int target);
-    
+    LinkNode* addTwoNumbers(LinkNode* l1, LinkNode* l2);
     
 #ifdef __cplusplus
 }

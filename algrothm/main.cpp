@@ -9,34 +9,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "linkedList/linkedlist.h"
+#include "linklist.h"
 #include "solution1_100.h"
-
-void kmpSample(void);
 
 
 int main(int argc, const char * argv[]) {
+    LinkNode *L;
+    int a[1] = {1};
+    CreateListHead(L, a, 1);
+    DispList(L);
     
-//    int x[4] = {2,7,11,15};
-//    int *ret;
-//    ret = twoSum(x, 4, 9);
-//    for (int i = 0; i < 2; i++) {
-//        printf("%d ", ret[i]);
-//    }
-//    free(ret);
-    LinkNode *l1;
-    InitList(l1);
-    int a1[] = {2, 4, 3};
-    CreateListR(l1, a1, 3);
+    LinkNode *L2;
+    int b[2] = {9, 9};
+    CreateListHead(L2, b, 2);
+    DispList(L2);
     
-    LinkNode *l2;
-    InitList(l2);
-    int a2[] = {4, 5, 6};
-    CreateListR(l2, a2, 3);
+    addTwoNumbers(L, L2);
     
-    DispList(l1);
-    DispList(l2);
-    
+    printf("hello world!\n");
 }
 
 
