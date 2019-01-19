@@ -11,6 +11,8 @@
 #include <stdlib.h>
 #include <math.h>
 
+#include <vector>
+using namespace std;
 
 /**
  * Note: The returned array must be malloced, assume caller calls free().
@@ -32,69 +34,6 @@ int* twoSum(int* nums, int numsSize, int target) {
     }
     return ret;
 }
-
-//LinkNode* addTwoNumbers(LinkNode* l1, LinkNode* l2) {
-//    LinkNode* ret;
-//    InitList(ret);
-//
-//    l1 = l1->next;
-//    l2 = l2->next;
-//
-//    long weight; // 第二次错：weight使用int，数据溢出
-//    int mi = 0;
-//    int carry = 0;
-//    long sum = 0;
-//
-//    while (l1 && l2) {
-//        weight = pow(10, mi);
-//
-//        int digSum = l1->val + l2->val + carry;
-//        printf("%d + %d + %d = %d\n",l1->val ,l2->val ,carry , digSum);
-//        carry = digSum >= 10 ? 1 : 0;
-//
-//        sum += (digSum % 10) * weight;
-//
-//        l1 = l1->next;
-//        l2 = l2->next;
-//        mi++;
-//    }
-//
-//    LinkNode *left; // 剩余的
-//
-//    if (l1 != NULL || l2 != NULL) {
-//        if (l1 == NULL) {
-//            left = l2;
-//        } else {
-//            left = l1;
-//        }
-//        do {
-//            weight = pow(10, mi);
-//            int digSum = left->val + carry;
-//            printf("%d + %d = %d\n",left->val ,carry , digSum);
-//            carry = digSum >= 10 ? 1 : 0; // 第一次错: 漏掉了等于号
-//
-//            sum += (digSum % 10) * weight;
-//
-//            left = left->next;
-//            mi++;
-//        } while (left);
-//
-//    }
-//
-//    weight = pow(10, mi);
-//    sum += weight * carry;
-//
-//
-//    do {
-//        int x = sum % 10;
-//        mi = ListLength(ret);
-//        ListInsert(ret, mi, x);
-//        sum = (sum - x) / 10;
-//    } while (sum != 0);
-//    DispList(ret);
-//
-//    return ret;
-//}
 
 LinkNode* addTwoNumbers(LinkNode* l1, LinkNode* l2) {
     LinkNode* ret, *s, *tail;
@@ -129,6 +68,14 @@ LinkNode* addTwoNumbers(LinkNode* l1, LinkNode* l2) {
         if (l2)
             l2 = l2->next;
     }
-    DispList(ret);
     return ret->next;
 }
+
+class Solution {
+public:
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        
+        
+        return 1.0;
+    }
+};

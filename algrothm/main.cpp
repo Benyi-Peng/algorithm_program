@@ -14,24 +14,7 @@
 
 
 int main(int argc, const char * argv[]) {
-    LinkNode *L;
-    int a[3] = {4, 6, 5};
-    CreateListHead(L, a, 3);
-//    int a[1] = {5};
-//    CreateListHead(L, a, 1);
-    DispList(L);
     
-    LinkNode *L2;
-    int b[31] = {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1};
-    CreateListHead(L2, b, 31);
-//    int b[1] = {5};
-//    CreateListHead(L2, b, 1);
-    
-    DispList(L2);
-    
-    addTwoNumbers(L, L2);
-    
-    printf("hello world!\n");
 }
 
 
