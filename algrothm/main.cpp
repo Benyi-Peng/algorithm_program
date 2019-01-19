@@ -15,13 +15,18 @@
 
 int main(int argc, const char * argv[]) {
     LinkNode *L;
-    int a[1] = {1};
-    CreateListHead(L, a, 1);
+    int a[3] = {4, 6, 5};
+    CreateListHead(L, a, 3);
+//    int a[1] = {5};
+//    CreateListHead(L, a, 1);
     DispList(L);
     
     LinkNode *L2;
-    int b[2] = {9, 9};
-    CreateListHead(L2, b, 2);
+    int b[31] = {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1};
+    CreateListHead(L2, b, 31);
+//    int b[1] = {5};
+//    CreateListHead(L2, b, 1);
+    
     DispList(L2);
     
     addTwoNumbers(L, L2);
