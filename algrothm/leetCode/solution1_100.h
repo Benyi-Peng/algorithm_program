@@ -12,16 +12,24 @@
 #include <stdio.h>
 #include "linklist.h"
 
+#include <vector>
+using namespace std;
+
 #ifdef __cplusplus
 extern "C" {
 #endif
     
     int* twoSum(int* nums, int numsSize, int target);
     LinkNode* addTwoNumbers(LinkNode* l1, LinkNode* l2);
+    double findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Size); 
     
 #ifdef __cplusplus
 }
 #endif
 
+class Solution {
+public:
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2);
+};
 
 #endif /* solution1_100_h */

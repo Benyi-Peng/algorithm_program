@@ -21,6 +21,7 @@
 		4B7F67982143490100B03423 /* tree_basis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B7F67972143490100B03423 /* tree_basis.cpp */; };
 		4B85BC8A21EF72AA000BE1A2 /* solution1_100.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B85BC8921EF72AA000BE1A2 /* solution1_100.cpp */; };
 		4BF60F6621F1F9B00059E913 /* linklist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BF60F6421F1F9B00059E913 /* linklist.cpp */; };
+		4BF60F6921F2E69A0059E913 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF60F6821F2E69A0059E913 /* libc++.tbd */; };
 		8E6201552121A56A002E28EC /* kmp.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E6201532121A56A002E28EC /* kmp.c */; };
 		8EDEE7422127AAE1001AD6B0 /* nqueen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EDEE7402127AAE1001AD6B0 /* nqueen.cpp */; };
 /* End PBXBuildFile section */
@@ -66,6 +67,7 @@
 		4B85BC8921EF72AA000BE1A2 /* solution1_100.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = solution1_100.cpp; sourceTree = "<group>"; };
 		4BF60F6421F1F9B00059E913 /* linklist.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = linklist.cpp; sourceTree = "<group>"; };
 		4BF60F6521F1F9B00059E913 /* linklist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = linklist.h; sourceTree = "<group>"; };
+		4BF60F6821F2E69A0059E913 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		8E6201532121A56A002E28EC /* kmp.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = kmp.c; sourceTree = "<group>"; };
 		8E6201542121A56A002E28EC /* kmp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kmp.h; sourceTree = "<group>"; };
 		8EDEE7402127AAE1001AD6B0 /* nqueen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = nqueen.cpp; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BF60F6921F2E69A0059E913 /* libc++.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +181,7 @@
 			children = (
 				4B5F574220CC9DC900AE0A4E /* algrothm */,
 				4B5F574120CC9DC900AE0A4E /* Products */,
+				4BF60F6721F2E6990059E913 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -229,6 +233,14 @@
 				4B85BC8921EF72AA000BE1A2 /* solution1_100.cpp */,
 			);
 			path = leetCode;
+			sourceTree = "<group>";
+		};
+		4BF60F6721F2E6990059E913 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4BF60F6821F2E69A0059E913 /* libc++.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		8E6201512121A53E002E28EC /* string */ = {
