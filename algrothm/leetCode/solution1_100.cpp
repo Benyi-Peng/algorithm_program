@@ -147,4 +147,49 @@ double findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Si
     return 0;
 }
 
+// 1. 暴力
+bool check(string s, size_t low, size_t high) {
+    while (low <= high) {
+        if (s.at(low) == s.at(high)) {
+            low++;
+            high--;
+        } else {
+            return false;
+        }
+    }
+    return true;
+}
+string Solution::longestPalindrome(string s) {
+    for (size_t size = s.size(); size > 0; size--) {
+        for (size_t low = 0, high = low + size - 1; high < s.size(); low++, high++) {
+            if (check(s, low, high)) {
+                return s.substr(low, high - low + 1);
+            }
+        }
+    }
+    return "a";
+}
 
+// 2. 中心扩展
+char* longestPalindrome(char* s) {
+    // 1. 得到s的长度
+    int n = 0;
+    char *p = s;
+    while (*p != '\0') {
+        p++;
+        n++;
+    }
+    
+    // 2. 得到填充#后的串temp
+    char *temp = (char *)malloc(sizeof(char) * (2 * n + 1));
+    p = temp;
+    while (*p != '\0') {
+        *p = '#';
+        p++;
+    }
+    p = s;
+    for (int i = 0; i < 2*n + 1; i += 2) {
+        temp[i + 1] = s[i / 2];
+    }
+    return temp; 
+}

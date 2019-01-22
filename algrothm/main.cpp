@@ -14,10 +14,8 @@
 
 
 int main(int argc, const char * argv[]) {
-    int a[1] = {1};
-    int b[1] = {1};
-    double x = findMedianSortedArrays(a, 1, b, 1);
-    printf("ret : %f\n", x);
+    char s[5] = {'a', 'b', 'c', 'd', 'e'};
+    printf("%s\n", longestPalindrome(s));
 }
 
 
