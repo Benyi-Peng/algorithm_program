@@ -10,7 +10,7 @@
 
 #include <stdlib.h>
 #include <math.h>
-
+#include <string.h>
 
 
 /**
@@ -179,17 +179,49 @@ char* longestPalindrome(char* s) {
         p++;
         n++;
     }
-    
+
     // 2. 得到填充#后的串temp
     char *temp = (char *)malloc(sizeof(char) * (2 * n + 1));
-    p = temp;
-    while (*p != '\0') {
-        *p = '#';
-        p++;
-    }
-    p = s;
+    memset(temp, '#', 2*n + 1);
+
     for (int i = 0; i < 2*n + 1; i += 2) {
         temp[i + 1] = s[i / 2];
     }
-    return temp; 
+    printf("%s\n", temp);
+
+    int start = 0;
+    int end = 0;
+    int maxLength = 0;
+
+    for (int i = 0; i < 2*n + 1; i++) {
+        int l = (i - 1) / 2;
+        int r = i / 2;
+        int curMaxLength = 0;
+        while (l >= 0 && l < n && r >= 0 && r < n) {
+            if (s[l] == s[r]) {
+                curMaxLength = r - l + 1;
+                if (curMaxLength > maxLength) {
+                    start = l;
+                    end = r;
+                    maxLength = curMaxLength;
+                }
+                l--;
+                r++;
+            } else
+                break;
+        }
+    }
+
+    int leng = end - start + 1;
+    char *ret = (char *)malloc(sizeof(char) * leng + 1);
+    for (int i = start, j = 0; j < leng; i++,j++) {
+        ret[j] = s[i];
+    }
+    ret[leng] = '\0';
+    return ret;
 }
+
+// 3. Manacher
+//char* longestPalindrome(char* s) {
+//    
+//}
