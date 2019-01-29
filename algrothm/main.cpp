@@ -15,8 +15,10 @@
 
 int main(int argc, const char * argv[]) {
 //    char s[5] = {'a', 'b', 'c', 'd', 'e'};
-    char s[5] = "cbbd";
+//    char s[5] = "cbcc";
+    char s[] = "ababababababa";
     printf("%s\n", longestPalindrome(s));
+    printf("%s\n", "ababababababa");
 }
 
 

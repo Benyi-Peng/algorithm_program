@@ -222,6 +222,65 @@ char* longestPalindrome(char* s) {
 }
 
 // 3. Manacher
-//char* longestPalindrome(char* s) {
-//    
-//}
+char* longestPalindrome2(char* s) {
+    // 1. 得到s的长度
+    int n = 0;
+    char *p = s;
+    while (*p != '\0') {
+        p++;
+        n++;
+    }
+    
+    // 不包含虚拟节点的下标
+    int start = 0;
+    int end = 0;
+    int maxLength = 0;
+    
+    int maxId = 0; // 当前最长回文的对称中心(此下标包含虚拟节点)
+    int maxRight = 0; // 当前最长回文的最右边(此下标包含虚拟节点)
+    int *lengArr = (int *)malloc(sizeof(int) * (2*n + 1));// 记录每个位置上字符的最长回文长度(此长度包含虚拟节点)
+    for (int i = 0; i < (2*n + 1); i++) {
+        lengArr[i] = 0;
+    }
+    
+    for (int i = 0; i < 2*n + 1; i++) {
+        int virtualL = i;
+        int virtualR = i;
+        if (i <= maxRight) {
+            int l = lengArr[2 * i - maxId];
+            virtualR = (i + l) < maxRight ? (i + l) : maxRight;
+            virtualL = 2 * virtualR - i;
+        }
+        
+        int l = (virtualL - 1) / 2;
+        int r = virtualR / 2;
+        
+        int curMaxLength = 0;
+        while (l >= 0 && l < n && r >= 0 && r < n) {
+            if (s[l] == s[r]) {
+                curMaxLength = r - l + 1;
+                if (curMaxLength > maxLength) {
+                    start = l;
+                    end = r;
+                    maxLength = curMaxLength;
+                    
+                    maxRight = 2 * (r + 1);
+                    maxId = i;
+                    lengArr[i] = maxRight - maxId;
+                }
+                l--;
+                r++;
+            } else
+                break;
+        }
+    }
+    
+    int leng = end - start + 1;
+    char *ret = (char *)malloc(sizeof(char) * leng + 1);
+    for (int i = start, j = 0; j < leng; i++,j++) {
+        ret[j] = s[i];
+    }
+    ret[leng] = '\0';
+    free(lengArr);
+    return ret;
+}
