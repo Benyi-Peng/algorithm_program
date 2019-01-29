@@ -24,6 +24,12 @@ extern "C" {
     LinkNode* addTwoNumbers(LinkNode* l1, LinkNode* l2);
     double findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Size);
     char* longestPalindrome(char* s);
+    int reverse(int x);
+    int reverse1(int x);
+    int myAtoi(char* str);
+    bool isPalindrome(int x);
+    int maxArea(int* height, int heightSize);
+    char* longestCommonPrefix(char** strs, int strsSize);
     
 #ifdef __cplusplus
 }

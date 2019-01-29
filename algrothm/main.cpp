@@ -14,11 +14,8 @@
 
 
 int main(int argc, const char * argv[]) {
-//    char s[5] = {'a', 'b', 'c', 'd', 'e'};
-//    char s[5] = "cbcc";
-    char s[] = "ababababababa";
-    printf("%s\n", longestPalindrome(s));
-    printf("%s\n", "ababababababa");
+    char *s[3] = {"abc", "abd", "abregfdg"};
+    printf("%s\n", longestCommonPrefix(s, 3));
 }
 
 

@@ -13,9 +13,7 @@
 #include <string.h>
 
 
-/**
- * Note: The returned array must be malloced, assume caller calls free().
- */
+#pragma mark - Leetcode1 两数之和
 int* twoSum(int* nums, int numsSize, int target) {
     int* ret = (int*)malloc(2 * sizeof(int));
     ret[0] = -1;
@@ -34,6 +32,7 @@ int* twoSum(int* nums, int numsSize, int target) {
     return ret;
 }
 
+#pragma mark - Leetcode2 两数相加
 LinkNode* addTwoNumbers(LinkNode* l1, LinkNode* l2) {
     LinkNode* ret, *s, *tail;
     ret = (LinkNode *)malloc(sizeof(LinkNode));
@@ -70,6 +69,7 @@ LinkNode* addTwoNumbers(LinkNode* l1, LinkNode* l2) {
     return ret->next;
 }
 
+#pragma mark - Leetcode4 两个有序数组的中位数
 // 添加虚拟#号 https://blog.csdn.net/hk2291976/article/details/51107778
 double Solution::findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
     size_t n = nums1.size();
@@ -147,6 +147,7 @@ double findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Si
     return 0;
 }
 
+#pragma mark - Leetcode5 最长回文子串
 // 1. 暴力
 bool check(string s, size_t low, size_t high) {
     while (low <= high) {
@@ -282,5 +283,176 @@ char* longestPalindrome2(char* s) {
     }
     ret[leng] = '\0';
     free(lengArr);
+    return ret;
+}
+
+#pragma mark - Leetcode7 整数反转
+int reverse(int x) {
+    int ret = 0;
+    // 加减判断标志位，乘法：除回来还是不是原来那个数
+    while (x != 0) {
+        int temp = ret;
+        ret = ret * 10;
+        if (ret / 10 != temp) {
+            return 0;
+        }
+        
+        int dig = x % 10;
+        ret += dig;
+        
+        x = x / 10;
+    }
+    return ret;
+}
+
+int reverse1(int x) {
+    int ret = 0;
+    while (x != 0) {
+        if (ret > INT_MAX / 10 || (ret == INT_MAX / 10 && x > 7)) {
+            return 0;
+        }
+        if (ret < INT_MIN / 10 || (ret == INT_MIN / 10 && x < -8)) {
+            return 0;
+        }
+        ret = ret * 10;
+        
+        int dig = x % 10;
+        ret += dig;
+        
+        x = x / 10;
+    }
+    return ret;
+}
+
+#pragma mark - Leetcode8 字符串转整数
+int myAtoi(char* str) {
+    char *first = str;
+    while (*first == ' ') {
+        first++;
+    }
+    if (*first != '+' && *first != '-' && (*first < '0' || *first > '9')) {
+        return 0;
+    }
+    int f = 1;
+    int ret = 0;
+    
+    if (*first == '-') {
+        f = -1;
+    } else if (*first != '+') {
+        ret += (*first - '0');
+    }
+    
+    char *p = ++first;
+    while (*p != '\0' && (*p <= '9' && *p >= '0')) {
+        if (f == 1 && (ret > INT_MAX / 10 || (ret == INT_MAX / 10 && *p > '7'))) {
+            return INT_MAX;
+        }
+        if (f == -1 && (ret > -(INT_MIN / 10) || (ret == -(INT_MIN / 10) && *p > '8'))) {
+            return INT_MIN;
+        }
+        ret = ret * 10;
+        
+        ret += (*p - '0');
+        
+        p++;
+    }
+    return ret * f;
+}
+
+#pragma mark - Leetcode9 回文数
+bool isPalindrome(int x) {
+    if (x < 0) {
+        return false;
+    }
+    int temp = x;
+    int ret = 0;
+    while (x != 0) {
+        ret = ret * 10;
+        
+        int dig = x % 10;
+        ret += dig;
+        
+        x = x / 10;
+    }
+    
+    return temp == ret;
+}
+
+#pragma mark - Leetcode11 盛水最多的容器
+//int min(int l, int r) {
+//    return l < r ? l : r;
+//}
+//
+//int max(int l, int r) {
+//    return l > r ? l : r;
+//}
+int maxArea(int* height, int heightSize) {
+    int l = 0, r = heightSize - 1, maxA= 0;
+    while (l < r) {
+        int a = (r - l) * min(height[l], height[r]);
+        maxA = max(maxA, a);
+        if (height[l] < height[r]) {
+            l++;
+        } else {
+            r--;
+        }
+    }
+    return maxA;
+}
+
+#pragma mark - Leetcode14 最长公共前缀
+bool isEnd(char** ptrs, int ptrSize) {
+    for (int i = 0; i < ptrSize; i++) {
+        if (*ptrs[i] == '\0') {
+            return true;
+        }
+    }
+    return false;
+}
+
+void move(char** ptrs, int ptrSize) {
+    for (int i = 0; i < ptrSize; i++) {
+        ptrs[i]++;
+    }
+}
+
+bool checkChar(char** ptrs, int ptrSize, char c) {
+    for (int i = 0; i < ptrSize; i++) {
+        if (*ptrs[i] != c) {
+            return false;
+        }
+    }
+    return true;
+}
+
+char* longestCommonPrefix(char** strs, int strsSize) {
+    if (strsSize < 1) {
+        char *ret = (char *)malloc(sizeof(char));
+        ret[0] = '\0';
+        return ret;
+    } else if (strsSize < 2) {
+        return strs[0];
+    }
+    
+    int leng = 0;
+    char tar = *strs[0];
+    
+    char **ptrArr = (char **)malloc(sizeof(char *) * strsSize);
+    for (int i = 0; i < strsSize; i++) {
+        ptrArr[i] = strs[i];
+    }
+    
+    while (!isEnd(ptrArr, strsSize) && checkChar(ptrArr, strsSize, tar)) {
+        move(ptrArr, strsSize);
+        leng++;
+        tar = strs[0][leng];
+    }
+    
+    char *ret = (char *)malloc(sizeof(char) * leng + 1);
+    for (int i = 0, j = 0; j < leng; i++,j++) {
+        ret[j] = strs[0][i];
+    }
+    ret[leng] = '\0';
+    free(ptrArr);
     return ret;
 }
