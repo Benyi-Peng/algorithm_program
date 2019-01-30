@@ -30,6 +30,7 @@ extern "C" {
     bool isPalindrome(int x);
     int maxArea(int* height, int heightSize);
     char* longestCommonPrefix(char** strs, int strsSize);
+    int** threeSum(int* nums, int numsSize, int* returnSize);
     
 #ifdef __cplusplus
 }
@@ -39,6 +40,8 @@ class Solution {
 public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2);
     string longestPalindrome(string s);
+    vector<vector<int>> threeSum(vector<int>& nums);
+    vector<vector<int>> threeSum1(vector<int> &nums);
 };
 
 #endif /* solution1_100_h */

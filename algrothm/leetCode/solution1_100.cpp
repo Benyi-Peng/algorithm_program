@@ -12,6 +12,8 @@
 #include <math.h>
 #include <string.h>
 
+#include <set>
+
 
 #pragma mark - Leetcode1 两数之和
 int* twoSum(int* nums, int numsSize, int target) {
@@ -455,4 +457,232 @@ char* longestCommonPrefix(char** strs, int strsSize) {
     ret[leng] = '\0';
     free(ptrArr);
     return ret;
+}
+
+#pragma mark - Leetcode15 三数之和
+// 双指针
+vector<vector<int>> Solution::threeSum(vector<int> &nums) {
+    vector<vector<int>> ret = vector<vector<int>>();
+    if (nums.size() < 3) {
+        return ret;
+    }
+    sort(nums.begin(), nums.end());
+    if (nums.back() < 0 || nums.front() > 0) {
+        return ret;
+    }
+    if (nums.back() == 0 && nums.front() == 0) {
+        return {{0, 0, 0}};
+    }
+    for (int i = 0; i < nums.size(); i++) {
+        int num1 = nums[i];
+        size_t l = i + 1;
+        size_t r = nums.size() - 1;
+        while (l < r) {
+            int n = num1 + nums[l] + nums[r];
+            if (n > 0) {
+                r--;
+            } else if (n < 0) {
+                l++;
+            } else {
+                bool flag = false;
+                if (ret.size() > 0) {
+                    for (int j = 0; j < ret.size(); j++) {
+                        if (ret[j][0] == num1 && ret[j][1] == nums[l] && ret[j][2] == nums[r]) {
+                            flag = true;
+                            break;
+                        }
+                    }                    
+                }
+                if (!flag) {
+                    vector<int> v = vector<int>();
+                    v.push_back(num1);
+                    v.push_back(nums[l]);
+                    v.push_back(nums[r]);
+                    ret.push_back(v);
+                }
+                l++;
+            }
+        }
+    }
+    return ret;
+}
+
+// 超时
+vector<vector<int>> Solution::threeSum1(vector<int> &nums) {
+    vector<vector<int>> ret = vector<vector<int>>();
+    if (nums.size() < 3) {
+        return ret;
+    }
+    bool allZero = true;
+    for (int m = 0; m < nums.size(); m++) {
+        if (nums[m] != 0) {
+            allZero = false;
+            break;
+        }
+    }
+    if (allZero) {
+        return {{0, 0, 0}};
+    }
+    vector<int> temp;
+    temp.assign(nums.begin(), nums.end());
+    
+    for (int i = 0; i < temp.size(); i++) {
+        int num1 = temp[i];
+        temp.erase(temp.begin() + i);
+        for (int j = 0; j < temp.size(); j++) {
+            int num2 = temp[j];
+            temp.erase(temp.begin() + j);
+            std::set<int> s;
+            for (const int &k : temp) {
+                s.insert(k);
+            }
+            if (s.count(-(num1 + num2)) != 0) {
+                bool flag = false;
+                if (ret.size() > 0) {
+                    for (int j = 0; j < ret.size(); j++) {
+                        vector<int> temp = ret[j];
+                        vector<int>::iterator it1 = std::find(temp.begin(), temp.end(), num1);
+                        bool c1 = it1 != temp.end();
+                        if (c1) {
+                            temp.erase(it1);
+                        }
+                        
+                        vector<int>::iterator it2 = std::find(temp.begin(), temp.end(), num2);
+                        bool c2 = it2 != temp.end();
+                        if (c2) {
+                            temp.erase(it2);
+                        }
+                        
+                        if (c1 && c2) {
+                            flag = true;
+                            break;
+                        }
+                    }
+                }
+                if (!flag) {
+                    vector<int> v = vector<int>();
+                    v.push_back(num1);
+                    v.push_back(num2);
+                    v.push_back(-(num1 + num2));
+                    ret.push_back(v);
+                }
+            }
+            temp.insert(temp.begin() + j, num2);
+        }
+        temp.insert(temp.begin() + i, num1);
+    }
+    return ret;
+}
+
+void swap(int *a, int *b) {
+    int temp;
+    
+    temp = *a;
+    *a = *b;
+    *b = temp;
+    
+    return;
+}
+
+void quicksort(int array[], int maxlen, int begin, int end) {
+    int i, j;
+    
+    if(begin < end) {
+        i = begin + 1;  // 将array[begin]作为基准数，因此从array[begin+1]开始与基准数比较！
+        j = end;        // array[end]是数组的最后一位
+        
+        while(i < j) {
+            if(array[i] > array[begin]) {  // 如果比较的数组元素大于基准数，则交换位置。
+                swap(&array[i], &array[j]);  // 交换两个数
+                j--;
+            } else {
+                i++;  // 将数组向后移一位，继续与基准数比较。
+            }
+        }
+        
+        /* 跳出while循环后，i = j。
+         * 此时数组被分割成两个部分  -->  array[begin+1] ~ array[i-1] < array[begin]
+         *                           -->  array[i+1] ~ array[end] > array[begin]
+         * 这个时候将数组array分成两个部分，再将array[i]与array[begin]进行比较，决定array[i]的位置。
+         * 最后将array[i]与array[begin]交换，进行两个分割部分的排序！以此类推，直到最后i = j不满足条件就退出！
+         */
+        
+        if(array[i] >= array[begin]) {  // 这里必须要取等“>=”，否则数组元素由相同的值时，会出现错误！
+            i--;
+        }
+        
+        swap(&array[begin], &array[i]);  // 交换array[i]与array[begin]
+        
+        quicksort(array, maxlen, begin, i);
+        quicksort(array, maxlen, j, end);
+    }
+}
+
+int** threeSum(int* nums, int numsSize, int* returnSize) {
+    int **ret = (int **)malloc(sizeof(int *));
+    
+    // 1.
+    if (numsSize < 3) {
+        *returnSize = 0;
+        return ret;
+    }
+    quicksort(nums, numsSize, 0, numsSize - 1);
+    if (nums[0] > 0 || nums[numsSize - 1] < 0) {
+        *returnSize = 0;
+        return ret;
+    }
+    if (nums[0] == 0 && nums[numsSize - 1] == 0) {
+        int *r = (int *)malloc(sizeof(int) * 3);
+        for (int i = 0; i < 3; i++) {
+            r[i] = 0;
+        }
+
+        ret[0] = r;
+        *returnSize = 1;
+        return ret;
+    }
+    
+    // 2.
+    int size = 0;
+    for (int i = 0; i < numsSize; i++) {
+        
+        int num1 = nums[i];
+        int l = i + 1;
+        int r = numsSize - 1;
+        while (l < r) {
+            int n = num1 + nums[l] + nums[r];
+            if (n > 0) {
+                r--;
+            } else if (n < 0) {
+                l++;
+            } else {
+                bool flag = false;
+                if (size > 0) {
+                    for (int j = 0; j < size; j++) {
+                        if (ret[j][0] == num1 && ret[j][1] == nums[l] && ret[j][2] == nums[r]) {
+                            flag = true;
+                        }
+                    }
+                }
+                if (!flag) {
+                    size++;
+                    ret = (int **)realloc(ret, sizeof(int *) * size);
+                    int *arr = (int *)malloc(sizeof(int) * 3);
+                    arr[0] = num1;
+                    arr[1] = nums[l];
+                    arr[2] = nums[r];
+                    ret[size - 1] = arr;
+                }
+                l++;
+                r--;
+            }
+        }
+    }
+    *returnSize = size;
+    return ret;
+}
+
+#pragma mark - Leetcode20 有效的括号
+bool isValid(char* s) {
+    return true;
 }
