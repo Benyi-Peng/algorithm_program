@@ -686,3 +686,33 @@ int** threeSum(int* nums, int numsSize, int* returnSize) {
 bool isValid(char* s) {
     return true;
 }
+
+#pragma mark - Leetcode 206 反转链表
+LinkNode* reverseList(LinkNode* head) {
+    LinkNode *pre = NULL;
+    LinkNode *cur;
+    LinkNode *tmp;
+
+    cur = head->next;
+
+    while (cur) {
+        tmp = cur->next;
+        cur->next = pre;
+        pre = cur;
+        cur = tmp;
+    }
+
+    head->next = pre;
+    return head;
+}
+
+LinkNode* reverseListRecursive(LinkNode* head) {
+    if (head == NULL || head->next == NULL) {
+        return head;
+    }
+    LinkNode *tmp = reverseListRecursive(head->next);
+    head->next->next = head;
+    head->next = NULL;
+    
+    return tmp;
+}

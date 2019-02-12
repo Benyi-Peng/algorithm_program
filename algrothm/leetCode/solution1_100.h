@@ -31,6 +31,8 @@ extern "C" {
     int maxArea(int* height, int heightSize);
     char* longestCommonPrefix(char** strs, int strsSize);
     int** threeSum(int* nums, int numsSize, int* returnSize);
+    LinkNode* reverseList(LinkNode* head);
+    LinkNode* reverseListRecursive(LinkNode* head);
     
 #ifdef __cplusplus
 }
