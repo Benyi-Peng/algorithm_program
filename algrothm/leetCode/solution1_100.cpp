@@ -474,32 +474,24 @@ vector<vector<int>> Solution::threeSum(vector<int> &nums) {
         return {{0, 0, 0}};
     }
     for (int i = 0; i < nums.size(); i++) {
+        if (i > 0 && nums[i] == nums[i - 1]) {
+            continue;
+        }
         int num1 = nums[i];
         size_t l = i + 1;
         size_t r = nums.size() - 1;
         while (l < r) {
+            if (l > i + 1 && nums[l] == nums[l - 1]) {
+                l++;
+                continue;
+            }
             int n = num1 + nums[l] + nums[r];
             if (n > 0) {
                 r--;
             } else if (n < 0) {
                 l++;
             } else {
-                bool flag = false;
-                if (ret.size() > 0) {
-                    for (int j = 0; j < ret.size(); j++) {
-                        if (ret[j][0] == num1 && ret[j][1] == nums[l] && ret[j][2] == nums[r]) {
-                            flag = true;
-                            break;
-                        }
-                    }                    
-                }
-                if (!flag) {
-                    vector<int> v = vector<int>();
-                    v.push_back(num1);
-                    v.push_back(nums[l]);
-                    v.push_back(nums[r]);
-                    ret.push_back(v);
-                }
+                ret.push_back({num1, nums[l], nums[r]});
                 l++;
             }
         }
