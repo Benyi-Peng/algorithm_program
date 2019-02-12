@@ -44,6 +44,7 @@ public:
     string longestPalindrome(string s);
     vector<vector<int>> threeSum(vector<int>& nums);
     vector<vector<int>> threeSum1(vector<int> &nums);
+    int threeSumClosest(vector<int>& nums, int target);
 };
 
 #endif /* solution1_100_h */

@@ -674,6 +674,48 @@ int** threeSum(int* nums, int numsSize, int* returnSize) {
     return ret;
 }
 
+#pragma mark - Leetcode16 最接近的三数之和
+int Solution::threeSumClosest(vector<int> &nums, int target) {
+    int tmp = 0, ret = 0;
+    int delta = INT_MAX;
+    if (nums.size() <= 3) {
+        for (int i = 0; i < nums.size(); i++) {
+            ret += nums[i];
+        }
+        return ret;
+    }
+    sort(nums.begin(), nums.end());
+    for (int i = 0; i < nums.size(); i++) {
+        if (i > 0 && nums[i] == nums[i - 1]) {
+            continue;
+        }
+        int num1 = nums[i];
+        size_t l = i + 1;
+        size_t r = nums.size() - 1;
+        while (l < r) {
+            if (l > i + 1 && nums[l] == nums[l - 1]) {
+                l++;
+                continue;
+            }
+            tmp = num1 + nums[l] + nums[r];
+            
+            if (fabs(tmp - target) == 0) {
+                return tmp;
+            } else if (fabs(tmp - target) < delta) {
+                ret = tmp;
+                delta = fabs(tmp - target);
+            } else {
+                if (tmp > target) {
+                    r--;
+                } else if (tmp < target) {
+                    l++;
+                }
+            }
+        }
+    }
+    return ret;
+}
+
 #pragma mark - Leetcode20 有效的括号
 bool isValid(char* s) {
     return true;
