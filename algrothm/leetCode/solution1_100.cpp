@@ -699,11 +699,11 @@ int Solution::threeSumClosest(vector<int> &nums, int target) {
             }
             tmp = num1 + nums[l] + nums[r];
             
-            if (fabs(tmp - target) == 0) {
+            if (abs(tmp - target) == 0) {
                 return tmp;
-            } else if (fabs(tmp - target) < delta) {
+            } else if (abs(tmp - target) < delta) {
                 ret = tmp;
-                delta = fabs(tmp - target);
+                delta = abs(tmp - target);
             } else {
                 if (tmp > target) {
                     r--;
@@ -719,6 +719,44 @@ int Solution::threeSumClosest(vector<int> &nums, int target) {
 #pragma mark - Leetcode20 有效的括号
 bool isValid(char* s) {
     return true;
+}
+
+#pragma mark - Leetcode21 合并两个有序链表
+LinkNode* mergeTwoLists(LinkNode* l1, LinkNode* l2) {
+    LinkNode *head = NULL;
+    LinkNode *cur = NULL;
+    if (l1 == NULL)
+        return l2;
+    if (l2 == NULL)
+        return l1;
+    if (l1->val < l2->val) {
+        head = l1;
+        l1 = l1->next;
+    } else {
+        head = l2;
+        l2 = l2->next;
+    }
+    
+    cur = head;
+    while (l1 && l2) {
+        if (l1->val < l2->val) {
+            cur->next = l1;
+            cur = l1;
+            l1 = l1->next;
+        } else {
+            cur->next = l2;
+            cur = l2;
+            l2 = l2->next;
+        }
+    }
+    
+    if (l1) {
+        cur->next = l1;
+    } else if (l2) {
+        cur->next = l2;
+    }
+    
+    return head;
 }
 
 #pragma mark - Leetcode 206 反转链表
@@ -750,3 +788,4 @@ LinkNode* reverseListRecursive(LinkNode* head) {
     
     return tmp;
 }
+

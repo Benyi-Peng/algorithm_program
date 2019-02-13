@@ -33,6 +33,7 @@ extern "C" {
     int** threeSum(int* nums, int numsSize, int* returnSize);
     LinkNode* reverseList(LinkNode* head);
     LinkNode* reverseListRecursive(LinkNode* head);
+    LinkNode* mergeTwoLists(LinkNode* l1, LinkNode* l2);
     
 #ifdef __cplusplus
 }
