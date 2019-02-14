@@ -14,13 +14,13 @@
 
 
 int main(int argc, const char * argv[]) {
-    LinkNode *l1 = (LinkNode*)malloc(sizeof(LinkNode));
-    int a1[3] = {1,4,5};
-    CreateListHead(l1, a1, 3);
+    int a[3] = {1, 1, 2};
+    int n = removeDuplicates(a, 3);
+    for (int i = 0; i < n; i++) {
+        printf("%d \n", a[i]);
+    }
     
-    vector<LinkNode*> lists = {l1};
-    
-    Solution().mergeKLists(lists);
+    printf("%d \n", n);
 }
 
 

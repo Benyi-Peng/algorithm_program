@@ -795,7 +795,7 @@ LinkNode* mergeTwoLists(LinkNode* l1, LinkNode* l2) {
     return head;
 }
 
-#pragma mark - 合并K个有序链表
+#pragma mark - Leetcode23 合并K个有序链表
 struct cmp{
     bool operator()(const LinkNode* p1,const LinkNode* p2){
         return p1->val>p2->val;
@@ -827,6 +827,19 @@ LinkNode* Solution::mergeKLists(vector<LinkNode *> &lists) {
         }
     }
     return newHead;
+}
+
+#pragma mark - Leetcode26 删除排序数组中的重复项
+int removeDuplicates(int* nums, int numsSize) {
+    int cur = 0, p = 0;
+    while(p < numsSize) {
+        nums[cur] = nums[p];
+        while(p < numsSize && nums[cur] == nums[p]) {
+            p++;
+        }
+        cur++;
+    }
+    return cur;
 }
 
 #pragma mark - Leetcode 206 反转链表

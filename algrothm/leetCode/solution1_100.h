@@ -35,6 +35,7 @@ extern "C" {
     LinkNode* reverseListRecursive(LinkNode* head);
     LinkNode* mergeTwoLists(LinkNode* l1, LinkNode* l2);
     bool isValid(char* s);
+    int removeDuplicates(int* nums, int numsSize);
     
 #ifdef __cplusplus
 }
