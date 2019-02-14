@@ -14,6 +14,7 @@
 
 #include <set>
 
+#include <queue>
 
 #pragma mark - Leetcode1 两数之和
 int* twoSum(int* nums, int numsSize, int target) {
@@ -718,8 +719,43 @@ int Solution::threeSumClosest(vector<int> &nums, int target) {
 
 #pragma mark - Leetcode20 有效的括号
 bool isValid(char* s) {
-    return true;
+    char *p = s;
+    int top = 0;
+    while (*p != '\0') {
+        top++;
+        p++;
+    }
+    if (top == 0)
+        return true;
+    char *stack = (char *)malloc(sizeof(char) * top);
+
+    p = s;
+    top = 0;
+    while (*p != '\0' && top >= 0) {
+        stack[top] = *p;
+
+        if (*p == ')') {
+            if (top > 0 && stack[top - 1] == '(') {
+                top -= 2;
+            }
+        } else if (*p == ']') {
+            if (top > 0 && stack[top - 1] == '[') {
+                top -= 2;
+            }
+        } else if (*p == '}') {
+            if (top > 0 && stack[top - 1] == '{') {
+                top -= 2;
+            }
+        }
+
+
+        top++;
+        p++;
+    }
+    free(stack);
+    return top == 0;
 }
+
 
 #pragma mark - Leetcode21 合并两个有序链表
 LinkNode* mergeTwoLists(LinkNode* l1, LinkNode* l2) {
@@ -757,6 +793,40 @@ LinkNode* mergeTwoLists(LinkNode* l1, LinkNode* l2) {
     }
     
     return head;
+}
+
+#pragma mark - 合并K个有序链表
+struct cmp{
+    bool operator()(const LinkNode* p1,const LinkNode* p2){
+        return p1->val>p2->val;
+    }
+};
+LinkNode* Solution::mergeKLists(vector<LinkNode *> &lists) {
+    if (lists.empty())
+        return NULL;
+    priority_queue<LinkNode*, vector<LinkNode*>, cmp> heap;
+    for (int i = 0; i < lists.size(); i++) {
+        if (lists[i] != NULL)
+            heap.push(lists[i]);
+    }
+    LinkNode *newHead = NULL;
+    LinkNode *top = NULL;
+    LinkNode *cur = NULL;
+    while (!heap.empty()) {
+        top = heap.top();
+        heap.pop();
+        if (newHead == NULL) {
+            newHead = top;
+        } else {
+            cur->next = top;
+        }
+        cur = top;
+        
+        if (top->next != NULL) {
+            heap.push(top->next);
+        }
+    }
+    return newHead;
 }
 
 #pragma mark - Leetcode 206 反转链表

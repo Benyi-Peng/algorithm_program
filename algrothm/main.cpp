@@ -14,9 +14,13 @@
 
 
 int main(int argc, const char * argv[]) {
-    vector<int> x = {1,2,5,10,11};
-    int ret = Solution().threeSumClosest(x, 12);
-    printf("%d \n", ret);
+    LinkNode *l1 = (LinkNode*)malloc(sizeof(LinkNode));
+    int a1[3] = {1,4,5};
+    CreateListHead(l1, a1, 3);
+    
+    vector<LinkNode*> lists = {l1};
+    
+    Solution().mergeKLists(lists);
 }
 
 

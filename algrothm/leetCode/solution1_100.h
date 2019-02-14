@@ -34,6 +34,7 @@ extern "C" {
     LinkNode* reverseList(LinkNode* head);
     LinkNode* reverseListRecursive(LinkNode* head);
     LinkNode* mergeTwoLists(LinkNode* l1, LinkNode* l2);
+    bool isValid(char* s);
     
 #ifdef __cplusplus
 }
@@ -46,6 +47,7 @@ public:
     vector<vector<int>> threeSum(vector<int>& nums);
     vector<vector<int>> threeSum1(vector<int> &nums);
     int threeSumClosest(vector<int>& nums, int target);
+    LinkNode* mergeKLists(vector<LinkNode*>& lists);
 };
 
 #endif /* solution1_100_h */
