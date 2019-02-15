@@ -36,6 +36,7 @@ extern "C" {
     LinkNode* mergeTwoLists(LinkNode* l1, LinkNode* l2);
     bool isValid(char* s);
     int removeDuplicates(int* nums, int numsSize);
+    int search(int* nums, int numsSize, int target);
     
 #ifdef __cplusplus
 }

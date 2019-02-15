@@ -14,13 +14,8 @@
 
 
 int main(int argc, const char * argv[]) {
-    int a[3] = {1, 1, 2};
-    int n = removeDuplicates(a, 3);
-    for (int i = 0; i < n; i++) {
-        printf("%d \n", a[i]);
-    }
-    
-    printf("%d \n", n);
+    int a[7] = {4,5,6,7,0,1,2};
+    printf("%d \n", search(a, 7, 0));
 }
 
 
