@@ -382,13 +382,6 @@ bool isPalindrome(int x) {
 }
 
 #pragma mark - Leetcode11 盛水最多的容器
-//int min(int l, int r) {
-//    return l < r ? l : r;
-//}
-//
-//int max(int l, int r) {
-//    return l > r ? l : r;
-//}
 int maxArea(int* height, int heightSize) {
     int l = 0, r = heightSize - 1, maxA= 0;
     while (l < r) {
@@ -938,6 +931,117 @@ char* multiply(char* num1, char* num2) {
     }
     
     free(t1);
+    return ret;
+}
+
+#pragma mark - Leetcode46 全排列
+// 非递归1
+void Swap(int *a ,int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+int* getArrange(int* nums, int numsSize) {
+    int *ret = (int*)malloc(sizeof(int) * numsSize);
+    for (int i = 0; i < numsSize; i++) {
+        ret[i] = nums[i];
+    }
+    return ret;
+}
+int** permute(int* nums, int numsSize, int* returnSize) {
+    if (numsSize == 0) {
+        *returnSize = 1;
+        return NULL;
+    }
+    int all = 1;
+    int num = numsSize;
+    while (num > 0) {
+        all *= num;
+        num--;
+    }
+    *returnSize = all;
+    
+    int** ret = (int **)malloc(sizeof(int*) * all);
+    
+    int* istack = (int*)malloc(sizeof(int) * numsSize);
+    int* startStack = (int*)malloc(sizeof(int) * numsSize);
+    for (int i = 0; i < numsSize; i++) {
+        istack[i] = i;
+        startStack[i] = i;
+    }
+    
+    int retIdx = 0;
+    int top = numsSize - 1;
+    int direct = 0; // 0 top往下(栈底)走   1 top往上(栈顶)走
+    while (top >= 0) {
+        if (startStack[top] == numsSize - 1) {
+            ret[retIdx] = getArrange(nums, numsSize);
+            retIdx++;
+            top--;
+            if (top >= 0) {
+                Swap(nums + startStack[top], nums + istack[top]);
+            } else {
+                break;
+            }
+            direct = 0;
+        } else {
+            if (istack[top] == numsSize - 1) {
+                top--;
+                if (top >= 0) {
+                    Swap(nums + startStack[top], nums + istack[top]);
+                } else {
+                    break;
+                }
+                direct = 0;
+            } else {
+                if (direct == 0) {
+                    istack[top]++;
+                }
+                Swap(nums + startStack[top], nums + istack[top]);
+                top++;
+                direct = 1;
+                istack[top] = top;
+                startStack[top] = top;
+            }
+        }
+    };
+    
+    free(startStack);
+    free(istack);
+    return ret;
+}
+
+void getPermute_R(int* nums, int start, int numsSize, int** ret, int* retIdx) {
+    if (start == numsSize - 1) {
+        ret[*retIdx] = getArrange(nums, numsSize);
+        *retIdx += 1;
+    } else {
+        for (int i = start; i < numsSize; i++) {
+            Swap(nums + start, nums + i);
+            getPermute_R(nums, start + 1, numsSize, ret, retIdx);
+            Swap(nums + start, nums + i);
+        }
+    }
+}
+
+int** permute1(int* nums, int numsSize, int* returnSize) {
+    if (numsSize == 0) {
+        *returnSize = 1;
+        return NULL;
+    }
+    int all = 1;
+    int num = numsSize;
+    while (num > 0) {
+        all *= num;
+        num--;
+    }
+    *returnSize = all;
+    
+    int** ret = (int **)malloc(sizeof(int*) * all);
+    
+    int retIdx = 0;
+    getPermute_R(nums, 0, numsSize, ret, &retIdx);
+    
     return ret;
 }
 

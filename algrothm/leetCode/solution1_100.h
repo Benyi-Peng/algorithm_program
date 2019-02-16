@@ -37,6 +37,8 @@ extern "C" {
     bool isValid(char* s);
     int removeDuplicates(int* nums, int numsSize);
     int search(int* nums, int numsSize, int target);
+    int** permute(int* nums, int numsSize, int* returnSize);
+    int** permute1(int* nums, int numsSize, int* returnSize);
     
 #ifdef __cplusplus
 }

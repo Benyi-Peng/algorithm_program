@@ -14,8 +14,15 @@
 
 
 int main(int argc, const char * argv[]) {
-    int a[7] = {4,5,6,7,0,1,2};
-    printf("%d \n", search(a, 7, 0));
+    int a[4] = {1, 2, 3, 4};
+    int b = 0;
+    int **x = permute1(a, 4, &b);
+    for (int i = 0; i < b; i++) {
+        for (int j = 0; j < 4; j++) {
+            printf("%d ", x[i][j]);
+        }
+        printf("\n");
+    }
 }
 
 
