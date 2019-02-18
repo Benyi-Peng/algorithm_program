@@ -14,15 +14,25 @@
 
 
 int main(int argc, const char * argv[]) {
-    int a[4] = {1, 2, 3, 4};
-    int b = 0;
-    int **x = permute1(a, 4, &b);
-    for (int i = 0; i < b; i++) {
-        for (int j = 0; j < 4; j++) {
-            printf("%d ", x[i][j]);
-        }
-        printf("\n");
+//    [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
+    int** a = (int**)malloc(sizeof(int*) * 4);
+    int a1[4] = {1,2,3,4};
+    a[0] = a1;
+    
+    int a2[4] = {5,6,7,8};
+    a[1] = a2;
+
+    int a3[4] = {9,10,11,12};
+    a[2] = a3;
+    
+    int a4[4] = {13,14,15,16};
+    a[3] = a4;
+    
+    int *b = spiralOrder(a, 4, 4);
+    for (int i = 0; i < 4 * 4; i++) {
+        printf("%d ", b[i]);
     }
+    printf("\n");
 }
 
 

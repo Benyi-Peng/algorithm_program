@@ -39,6 +39,7 @@ extern "C" {
     int search(int* nums, int numsSize, int target);
     int** permute(int* nums, int numsSize, int* returnSize);
     int** permute1(int* nums, int numsSize, int* returnSize);
+    int* spiralOrder(int** matrix, int matrixRowSize, int matrixColSize);
     
 #ifdef __cplusplus
 }

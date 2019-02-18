@@ -1045,6 +1045,71 @@ int** permute1(int* nums, int numsSize, int* returnSize) {
     return ret;
 }
 
+#pragma mark - Leetcode53 最大子序和
+int maxSubArray(int* nums, int numsSize) {
+    if (numsSize == 0) {
+        return 0;
+    }
+    int sum = nums[0];
+    int max = nums[0];
+    for(int i = 1; i < numsSize; i++) {
+        if (sum < 0)
+            sum = nums[i];
+        else
+            sum += nums[i];
+        if (sum > max)
+            max = sum;
+    }
+    return max;
+}
+
+#pragma mark - Leetcode 54 螺旋矩阵
+void spiralOrder_R(int** matrix, int rowStart, int colStart ,int matrixRowSize, int matrixColSize, int *ret, int start) {
+    if (matrixRowSize <= 0 || matrixColSize <= 0) {
+        return;
+    }
+    for (int i = 0; i < matrixColSize; i++) {
+        ret[start] = matrix[rowStart][i + colStart];
+        start++;
+    }
+    
+    if (matrixRowSize > 1) {
+        for (int i = 1; i < matrixRowSize; i++) {
+            ret[start] = matrix[i + rowStart][matrixColSize - 1 + colStart];
+            start++;
+        }
+        
+        if (matrixColSize > 1) {
+            for (int i = matrixColSize - 2; i >= 0; i--) {
+                ret[start] = matrix[matrixRowSize - 1 + rowStart][i + colStart];
+                start++;
+            }
+            
+            if (matrixRowSize > 2) {
+                for (int i = matrixRowSize - 2; i >= 1; i--) {
+                    ret[start] = matrix[i + rowStart][colStart];
+                    start++;
+                }
+            }
+        }
+    }
+    
+    if (matrixRowSize > 2 && matrixColSize > 2) {
+        spiralOrder_R(matrix, rowStart + 1, colStart + 1, matrixRowSize - 2, matrixColSize - 2, ret, start);
+    }
+}
+
+int* spiralOrder(int** matrix, int matrixRowSize, int matrixColSize) {
+    int *ret = (int*)malloc(sizeof(int) * matrixColSize * matrixRowSize);
+    spiralOrder_R(matrix, 0, 0, matrixRowSize, matrixColSize, ret, 0);
+    return ret;
+}
+
+#pragma mark - Leetcode 59 螺旋矩阵2
+int** generateMatrix(int n) {
+    return NULL;
+}
+
 #pragma mark - Leetcode 206 反转链表
 LinkNode* reverseList(LinkNode* head) {
     LinkNode *pre = NULL;
