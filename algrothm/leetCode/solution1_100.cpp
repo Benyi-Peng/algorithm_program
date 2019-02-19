@@ -1107,8 +1107,105 @@ int* spiralOrder(int** matrix, int matrixRowSize, int matrixColSize) {
 
 #pragma mark - Leetcode 59 螺旋矩阵2
 int** generateMatrix(int n) {
+    int **ret = (int**)malloc(sizeof(int*) * n);
+    for (int i = 0; i < n; i++) {
+        int* a = (int*)malloc(sizeof(int) * n);
+        ret[i] = a;
+    }
+    
+    int matrixRowSize = n;
+    int matrixColSize = n;
+    int rowStart = 0;
+    int colStart = 0;
+    int num = 1;
+    
+    while (matrixRowSize > 0 && matrixColSize > 0) {
+        for (int i = 0; i < matrixColSize; i++) {
+            ret[rowStart][i + colStart] = num;
+            num++;
+        }
+        
+        if (matrixRowSize > 1) {
+            for (int i = 1; i < matrixRowSize; i++) {
+                ret[i + rowStart][matrixColSize - 1 + colStart] = num;
+                num++;
+            }
+            
+            if (matrixColSize > 1) {
+                for (int i = matrixColSize - 2; i >= 0; i--) {
+                    ret[matrixRowSize - 1 + rowStart][i + colStart] = num;
+                    num++;
+                }
+                
+                if (matrixRowSize > 2) {
+                    for (int i = matrixRowSize - 2; i >= 1; i--) {
+                        ret[i + rowStart][colStart] = num;
+                        num++;
+                    }
+                }
+            }
+        }
+        
+        matrixRowSize -= 2;
+        matrixColSize -= 2;
+        rowStart++;
+        colStart++;
+    }
+    
+    return ret;
+}
+
+LinkNode* rotateRight(LinkNode* head, int k) {
+    
     return NULL;
 }
+
+#pragma mark - Leetcode62 不同路径
+int uniquePaths(int m, int n) {
+    int** pathes = (int**)malloc(sizeof(int*) * m);
+    for (int i = 0; i < m; i++) {
+        int *a = (int*)malloc(sizeof(int) * n);
+        if (i == 0) {
+            for (int j = 0; j < n; j++) {
+                a[j] = 1;
+            }
+        }
+        a[0] = 1;
+        pathes[i] = a;
+    }
+    if (m == 1 || n == 1) {
+        return 1;
+    }
+    
+    for (int i = 1; i < m; i++) {
+        for (int j = 1; j < n; j++) {
+            pathes[i][j] = pathes[i - 1][j] + pathes[i][j - 1];
+        }
+    }
+    int ret = pathes[m - 1][n - 1];
+    free(pathes);
+    return ret;
+}
+
+#pragma mark - Leetcode78 子集
+void subset_R(vector<int> &nums, vector<int> curSet,int start, vector<vector<int>> ret) {
+    for (int i = start; i < nums.size(); i++) {
+        curSet.push_back(nums[i]);
+        ret.push_back(curSet);
+        subset_R(nums, curSet, i + 1, ret);
+        curSet.pop_back();
+    }
+}
+
+vector<vector<int>> Solution::subsets(vector<int> &nums) {
+    vector<vector<int>> ret;
+    vector<int> curSet;
+    ret.push_back(curSet);
+    subset_R(nums, curSet, 0, ret);
+    return ret;
+}
+
+
 
 #pragma mark - Leetcode 206 反转链表
 LinkNode* reverseList(LinkNode* head) {

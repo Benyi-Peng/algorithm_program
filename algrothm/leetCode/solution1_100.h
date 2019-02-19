@@ -40,6 +40,7 @@ extern "C" {
     int** permute(int* nums, int numsSize, int* returnSize);
     int** permute1(int* nums, int numsSize, int* returnSize);
     int* spiralOrder(int** matrix, int matrixRowSize, int matrixColSize);
+    int uniquePaths(int m, int n);
     
 #ifdef __cplusplus
 }
@@ -53,6 +54,7 @@ public:
     vector<vector<int>> threeSum1(vector<int> &nums);
     int threeSumClosest(vector<int>& nums, int target);
     LinkNode* mergeKLists(vector<LinkNode*>& lists);
+    vector<vector<int>> subsets(vector<int>& nums);
 };
 
 #endif /* solution1_100_h */
