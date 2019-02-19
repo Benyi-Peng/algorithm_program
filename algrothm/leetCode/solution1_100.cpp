@@ -1205,7 +1205,68 @@ vector<vector<int>> Solution::subsets(vector<int> &nums) {
     return ret;
 }
 
+#pragma mark - Leetcode 146 LRU缓存机制
 
+
+#pragma mark - Leetcode 124 二叉树中最大路径和
+struct TreeNode {
+    int val;
+    struct TreeNode *left;
+    struct TreeNode *right;
+};
+
+int calculate(struct TreeNode* root, int *Max) {
+    if (root == NULL)
+        return 0;
+    
+    int tmp = root->val;
+    int leftMax = calculate(root->left, Max);
+    int rightMax = calculate(root->right, Max);
+    
+    if (leftMax > 0) {
+        tmp += leftMax;
+    }
+    
+    if (rightMax > 0) {
+        tmp += rightMax;
+    }
+    
+    if (tmp > *Max) {
+        *Max = tmp;
+    }
+    
+    int ret = root->val;
+    ret = max(ret, root->val + leftMax);
+    ret = max(ret, root->val + rightMax);
+    ret = max(ret, root->val + leftMax + rightMax);
+    return ret;
+}
+
+int maxPathSum(struct TreeNode* root) {
+    if (root == NULL)
+        return 0;
+    
+    int Max = INT_MIN;
+    calculate(root, &Max);
+    return Max;
+}
+
+int Max(int a,int b){
+    return a>b?a:b;
+}
+int FindMax(struct TreeNode* root,int* max){
+    if(root==NULL)
+        return 0;
+    int left=Max(0,FindMax(root->left,max));
+    int right=Max(0,FindMax(root->right,max));
+    *max=Max(*max,left+right+root->val);
+    return Max(left,right)+root->val;
+}
+int maxPathSum1(struct TreeNode* root) {
+    int max=INT_MIN;
+    FindMax(root,&max);
+    return max;
+}
 
 #pragma mark - Leetcode 206 反转链表
 LinkNode* reverseList(LinkNode* head) {
